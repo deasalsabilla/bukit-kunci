@@ -1,0 +1,15 @@
+.hero-text {
+    
+    position: absolute;
+    top: 60px;
+    left: 120px;
+    transform: translate(-50%, -50%);
+    color: white;
+    
+
+  }
+.mapku{
+    width: 2000px; 
+    height: 500px;
+    
+}
