@@ -266,7 +266,7 @@ session_start();
                                         <td><?php echo $no++ ?></td>
                                         <td><?php echo $hasil['judul'] ?></td>
                                         <td><?php echo $hasil['deskripsi'] ?></td>
-                                        <td><?php echo $hasil['gambar'] ?></td>
+                                        <td><img src="img/<?php echo $hasil['gambar'] ?>" width="125px" height="100px" alt=""></td>
                                         <td><?php echo $hasil['date'] ?></td>
                                         <td>
                                             <button class="btn btn-warning"><a href="edit.php?id=<?php echo $hasil['id']; ?>" style="color: black; text-decoration:none;">Edit</a></button>
