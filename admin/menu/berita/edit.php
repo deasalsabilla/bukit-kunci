@@ -27,7 +27,7 @@ $data = mysqli_fetch_array($query);
     <div class="container col-md-6">
         <div class="card">
             <div class="card-header bg-primary text-white">
-                Ubah Data Kelola Foto
+                Ubah Data Berita
             </div>
             <div class="card-body">
                 <form action="" method="POST" class="form-item">
