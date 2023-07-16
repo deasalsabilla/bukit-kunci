@@ -129,10 +129,10 @@ session_start();
                         <a class="nav-link px-3" href="../../menu/kelolafoto/index.php">
                             <i class="" aria-hidden="true"></i>Kelola Foto
                         </a>
-
-                        <!-- <a class="nav-link px-3" href="../../menu/laporan/index.php">
-                        <i class="" aria-hidden="true"></i>Laporan
-                    </a> -->
+                        
+                        <a class="nav-link px-3" href="../../menu/reservasi/index.php">
+                            <i class="" aria-hidden="true"></i>Reservasi
+                        </a>
 
                         <a class="nav-link px-3" href="../../menu/user/index.php">
                             <i class="" aria-hidden="true"></i>User
