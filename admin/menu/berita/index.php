@@ -175,9 +175,9 @@ session_start();
 
                 $query = mysqli_query($koneksi, "insert into tb_berita(judul,deskripsi,gambar) values('$judul','$deskripsi','$imgnewfile')");
                 if ($query) {
-                    echo "<script>alert('berhasil');</script>";
+                    echo "<script>alert('Berhasil Menambahkan Data Berita ');</script>";
                 } else {
-                    echo "<script>alert('Gagal');</script>";
+                    echo "<script>alert('Gagal Menambahkan Data Berita');</script>";
                 }
             }
         }
