@@ -104,7 +104,7 @@ session_start();
                     <div class="d-block pt-4 pb-3 px-3">
                         <img src="../../images/user/user.png" alt="user" class="slider-img-user mb-2">
                         <p class="fw-bold mb-0 lh-1 text-white"><?php echo $_SESSION['username']; ?></p>
-                        <small class="text-white text-uppercase"><?php echo $_SESSION['level'];?></small>
+                        <small class="text-white text-uppercase"><?php echo $_SESSION['level']; ?></small>
                     </div>
                 </div>
                 <div class="slider-body px-1">
@@ -120,23 +120,23 @@ session_start();
                         <a class="nav-link px-3" href="../../menu/berita/index.php">
                             <i class="fa fa-" aria-hidden="true"></i>Berita
                         </a>
-                        <?php if($_SESSION['level'] == "admin"): ?>
-                        <a class="nav-link px-3" href="../../menu/kelolawisata/index.php">
-                            <i class="" aria-hidden="true"></i>Kelola Wisata
-                        </a>
+                        <?php if ($_SESSION['level'] == "admin") : ?>
+                            <a class="nav-link px-3" href="../../menu/kelolawisata/index.php">
+                                <i class="" aria-hidden="true"></i>Kelola Wisata
+                            </a>
 
-                        <a class="nav-link px-3" href="../../menu/kelolafoto/index.php">
-                            <i class="" aria-hidden="true"></i>Kelola Foto
-                        </a>
+                            <a class="nav-link px-3" href="../../menu/kelolafoto/index.php">
+                                <i class="" aria-hidden="true"></i>Kelola Foto
+                            </a>
 
-                        <!-- <a class="nav-link px-3" href="../../menu/laporan/index.php">
+                            <!-- <a class="nav-link px-3" href="../../menu/laporan/index.php">
                         <i class="" aria-hidden="true"></i>Laporan
                     </a> -->
 
-                        <a class="nav-link px-3" href="../../menu/user/index.php">
-                            <i class="" aria-hidden="true"></i>User
-                        </a>
-                        <?php endif;?>
+                            <a class="nav-link px-3" href="../../menu/user/index.php">
+                                <i class="" aria-hidden="true"></i>User
+                            </a>
+                        <?php endif; ?>
                         <hr class="soft my-1 bg-white">
                         <a class="nav-link px-3" href="../../logout.php">
                             <i class="" aria-hidden="true"></i>LogOut
@@ -148,40 +148,40 @@ session_start();
             <!-- end side bar -->
 
             <?php
-        include "../../assets/conn/koneksi.php";
+            include "../../assets/conn/koneksi.php";
 
-        if (isset($_POST['submit'])) {
-            $judul = $_POST['judul'];
-            $deskripsi = $_POST['deskripsi'];
-            $imgfile = $_FILES['postimage']['name'];
-            $tmp_file = $_FILES['postimage']['tmp_name'];
-            $extension = substr($imgfile, strlen($imgfile) - 4, strlen($imgfile));
-            $active = 1;
+            if (isset($_POST['submit'])) {
+                $judul = $_POST['judul'];
+                $deskripsi = $_POST['deskripsi'];
+                $imgfile = $_FILES['postimage']['name'];
+                $tmp_file = $_FILES['postimage']['tmp_name'];
+                $extension = substr($imgfile, strlen($imgfile) - 4, strlen($imgfile));
+                $active = 1;
 
-            $dir = "img/";
-            // allowed extensions
-            $allowed_extensions = array(".jpg", ".jpeg", ".png", ".gif");
+                $dir = "img/";
+                // allowed extensions
+                $allowed_extensions = array(".jpg", ".jpeg", ".png", ".gif");
 
-            // Validation for allowed extensions .in_array() function searches an array for a specific value.
-            if (!in_array($extension, $allowed_extensions)) {
-                echo "<script>alert('Invalid format. Only jpg / jpeg/ png /gif format allowed');</script>";
-            } else {
-
-                //rename the image file
-                $imgnewfile = md5($imgfile) . $extension;
-                // Code for move image into directory
-
-                move_uploaded_file($tmp_file, $dir . $imgnewfile);
-
-                $query = mysqli_query($koneksi, "insert into tb_berita(judul,deskripsi,gambar) values('$judul','$deskripsi','$imgnewfile')");
-                if ($query) {
-                    echo "<script>alert('Berhasil Menambahkan Data Berita ');</script>";
+                // Validation for allowed extensions .in_array() function searches an array for a specific value.
+                if (!in_array($extension, $allowed_extensions)) {
+                    echo "<script>alert('Invalid format. Only jpg / jpeg/ png /gif format allowed');</script>";
                 } else {
-                    echo "<script>alert('Gagal Menambahkan Data Berita');</script>";
+
+                    //rename the image file
+                    $imgnewfile = md5($imgfile) . $extension;
+                    // Code for move image into directory
+
+                    move_uploaded_file($tmp_file, $dir . $imgnewfile);
+
+                    $query = mysqli_query($koneksi, "insert into tb_berita(judul,deskripsi,gambar) values('$judul','$deskripsi','$imgnewfile')");
+                    if ($query) {
+                        echo "<script>alert('Data Berhasil di tambahkan');</script>";
+                    } else {
+                        echo "<script>alert('Data Tidak Berhasil di tambahkan');</script>";
+                    }
                 }
             }
-        }
-        ?>
+            ?>
 
             <div class="main-pages">
                 <div class="container-fluid">

@@ -64,7 +64,7 @@ $data = mysqli_fetch_array($query);
                     echo "<script> alert('Data Berhasil Di ubah')</script>";
                     header("refresh:0,index.php");
                 } else {
-                    echo "<script> alert('Data  tidak Berhasil Di ubah')</script>";
+                    echo "<script> alert('Data tidak Berhasil Di ubah')</script>";
                     header("refresh:0,index.php");
                 }
             }
