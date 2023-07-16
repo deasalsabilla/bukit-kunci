@@ -121,23 +121,23 @@ session_start();
                     <a class="nav-link px-3" href="../../menu/berita/index.php">
                         <i class="" aria-hidden="true"></i>Berita
                     </a>
-                    <?php if($_SESSION['level'] == "admin"): ?>
-                    <a class="nav-link px-3" href="../../menu/kelolawisata/index.php">
-                        <i class="" aria-hidden="true"></i>Kelola Wisata
-                    </a>
+                    <?php if ($_SESSION['level'] == "admin") : ?>
+                        <a class="nav-link px-3" href="../../menu/kelolawisata/index.php">
+                            <i class="" aria-hidden="true"></i>Kelola Wisata
+                        </a>
 
-                    <a class="nav-link px-3" href="../../menu/kelolafoto/index.php">
-                        <i class="" aria-hidden="true"></i>Kelola Foto
-                    </a>
+                        <a class="nav-link px-3" href="../../menu/kelolafoto/index.php">
+                            <i class="" aria-hidden="true"></i>Kelola Foto
+                        </a>
 
-                    <!-- <a class="nav-link px-3" href="../../menu/laporan/index.php">
+                        <!-- <a class="nav-link px-3" href="../../menu/laporan/index.php">
                         <i class="" aria-hidden="true"></i>Laporan
                     </a> -->
 
-                    <a class="nav-link px-3" href="../../menu/user/index.php">
-                        <i class="" aria-hidden="true"></i>User
-                    </a>
-                    <?php endif;?>
+                        <a class="nav-link px-3" href="../../menu/user/index.php">
+                            <i class="" aria-hidden="true"></i>User
+                        </a>
+                    <?php endif; ?>
                     <hr class="soft my-1 bg-white">
                     <a class="nav-link px-3" href="../../logout.php">
                         <i class="" aria-hidden="true"></i>LogOut
@@ -267,13 +267,13 @@ session_start();
                             ?>
                                 <tr>
                                     <td><?php echo $no++ ?></td>
-                                    <td><?php echo $hasil['postimage'] ?></td>
+                                    <td><img src="img/<?php echo $hasil['postimage'] ?>" width="125px" height="125px"></td>
                                     <td><?php echo $hasil['nama'] ?></td>
                                     <td><?php echo $hasil['caption'] ?></td>
                                     <td><?php echo $hasil['postDate'] ?></td>
                                     <td>
-                                        <button class="btn btn-warning"><a href="edit.php?id=<?php echo $hasil['id'];?>" style="color: black; text-decoration:none;">Edit</a></button>
-                                        <button class="btn btn-danger" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus Data?')"><a href="delete.php?id=<?php echo $hasil['id'];?>" style="color: white; text-decoration:none;">Hapus</a></button>
+                                        <button class="btn btn-warning"><a href="edit.php?id=<?php echo $hasil['id']; ?>" style="color: black; text-decoration:none;">Edit</a></button>
+                                        <button class="btn btn-danger" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus Data?')"><a href="delete.php?id=<?php echo $hasil['id']; ?>" style="color: white; text-decoration:none;">Hapus</a></button>
                                     </td>
                                 </tr>
                             <?php
@@ -282,7 +282,7 @@ session_start();
                         </tbody>
                     </table>
                 </div>
-                
+
 
             </div>
         </div>
