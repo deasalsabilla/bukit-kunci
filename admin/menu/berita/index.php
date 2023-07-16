@@ -110,7 +110,7 @@ session_start();
                 <div class="slider-body px-1">
                     <nav class="nav flex-column">
                         <a class="nav-link px-3 active" href="../../index.php">
-                            <i class="" aria-hidden="true"></i>Home
+                            Home
                         </a>
                         <hr class="soft my-1 bg-dark">
 

@@ -33,7 +33,7 @@ $data = mysqli_fetch_array($query);
                 <form action="" method="POST" class="form-item">
                     <div class="form-group">
                         <label for="postimage">Judul</label>
-                        <input type="text" name="judul" class="form-control col-md-9" value="<?php echo $data['judul']; ?>" >
+                        <input type="text" name="judul" class="form-control col-md-9" value="<?php echo $data['judul']; ?>">
                     </div> <br>
                     <div class="form-group">
                         <label for="caption">Deskripsi</label>

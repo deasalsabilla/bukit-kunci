@@ -113,14 +113,14 @@ session_start();
             <div class="slider-head">
                 <div class="d-block pt-4 pb-3 px-3">
                     <img src="../../images/user/user.png" alt="user" class="slider-img-user mb-2">
-                    <p class="fw-bold mb-0 lh-1 text-white"><?php echo $_SESSION['username']?></p>
-                    <small class="text-white text-uppercase"><?php echo $_SESSION['level']?></small>
+                    <p class="fw-bold mb-0 lh-1 text-white"><?php echo $_SESSION['username'] ?></p>
+                    <small class="text-white text-uppercase"><?php echo $_SESSION['level'] ?></small>
                 </div>
             </div>
             <div class="slider-body px-1">
                 <nav class="nav flex-column">
                     <a class="nav-link px-3 active" href="../../index.php">
-                        <i class="" aria-hidden="true"></i>Home
+                        Home
                     </a>
                     <hr class="soft my-1 bg-dark">
 
@@ -130,23 +130,23 @@ session_start();
                     <a class="nav-link px-3" href="../../menu/kelolawisata/index.php">
                         <i class="" aria-hidden="true"></i>Berita
                     </a>
-                    <?php if($_SESSION['level'] == "admin"): ?>
-                    <a class="nav-link px-3" href="../../menu/kelolawisata/index.php">
-                        <i class="" aria-hidden="true"></i>Kelola Wisata
-                    </a>
+                    <?php if ($_SESSION['level'] == "admin") : ?>
+                        <a class="nav-link px-3" href="../../menu/kelolawisata/index.php">
+                            <i class="" aria-hidden="true"></i>Kelola Wisata
+                        </a>
 
-                    <a class="nav-link px-3" href="../../menu/kelolafoto/index.php">
-                        <i class="" aria-hidden="true"></i>Kelola Foto
-                    </a>
+                        <a class="nav-link px-3" href="../../menu/kelolafoto/index.php">
+                            <i class="" aria-hidden="true"></i>Kelola Foto
+                        </a>
 
-                    <!-- <a class="nav-link px-3" href="../../menu/laporan/index.php">
+                        <!-- <a class="nav-link px-3" href="../../menu/laporan/index.php">
                         <i class="" aria-hidden="true"></i>Laporan
                     </a> -->
 
-                    <a class="nav-link px-3" href="../../menu/user/index.php">
-                        <i class="" aria-hidden="true"></i>User
-                    </a>
-                    <?php endif;?>
+                        <a class="nav-link px-3" href="../../menu/user/index.php">
+                            <i class="" aria-hidden="true"></i>User
+                        </a>
+                    <?php endif; ?>
                     <hr class="soft my-1 bg-white">
                     <a class="nav-link px-3" href="../../logout.php">
                         <i class="" aria-hidden="true"></i>LogOut
@@ -279,17 +279,17 @@ session_start();
                                         <?php
                                         $no = 1;
                                         $query = mysqli_query($koneksi, "SELECT * FROM tb_user");
-                                        while($row = mysqli_fetch_array($query)){
+                                        while ($row = mysqli_fetch_array($query)) {
 
                                         ?>
-                                        <tr align="center">
-                                            <td><?php echo $no++ ?></td>
-                                            <td><?php echo $row['nama'] ?></td>
-                                            <td><?php echo $row['username'] ?></td>
-                                            <td><?php echo $row['password'] ?></td>
-                                            <td><?php echo $row['level'] ?></td>
-                                            
-                                        </tr>
+                                            <tr align="center">
+                                                <td><?php echo $no++ ?></td>
+                                                <td><?php echo $row['nama'] ?></td>
+                                                <td><?php echo $row['username'] ?></td>
+                                                <td><?php echo $row['password'] ?></td>
+                                                <td><?php echo $row['level'] ?></td>
+
+                                            </tr>
                                         <?php } ?>
                                     </tbody>
                                 </table>

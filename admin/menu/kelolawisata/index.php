@@ -111,7 +111,7 @@ session_start();
             <div class="slider-body px-1">
                 <nav class="nav flex-column">
                     <a class="nav-link px-3 active" href="../../index.php">
-                        <i class="fa fa-home fa-lg box-icon" aria-hidden="true"></i>Home
+                        Home
                     </a>
                     <hr class="soft my-1 bg-dark">
 
@@ -121,23 +121,23 @@ session_start();
                     <a class="nav-link px-3" href="../../menu/berita/index.php">
                         <i class="" aria-hidden="true"></i>Berita
                     </a>
-                    <?php if($_SESSION['level'] == "admin"): ?>
-                    <a class="nav-link px-3" href="../../menu/kelolawisata/index.php">
-                        <i class="" aria-hidden="true"></i>Kelola Wisata
-                    </a>
+                    <?php if ($_SESSION['level'] == "admin") : ?>
+                        <a class="nav-link px-3" href="../../menu/kelolawisata/index.php">
+                            <i class="" aria-hidden="true"></i>Kelola Wisata
+                        </a>
 
-                    <a class="nav-link px-3" href="../../menu/kelolafoto/index.php">
-                        <i class="" aria-hidden="true"></i>Kelola Foto
-                    </a>
+                        <a class="nav-link px-3" href="../../menu/kelolafoto/index.php">
+                            <i class="" aria-hidden="true"></i>Kelola Foto
+                        </a>
 
-                    <!-- <a class="nav-link px-3" href="../../menu/laporan/index.php">
+                        <!-- <a class="nav-link px-3" href="../../menu/laporan/index.php">
                         <i class="" aria-hidden="true"></i>Laporan
                     </a> -->
 
-                    <a class="nav-link px-3" href="../../menu/user/index.php">
-                        <i class="" aria-hidden="true"></i>User
-                    </a>
-                    <?php endif;?>
+                        <a class="nav-link px-3" href="../../menu/user/index.php">
+                            <i class="" aria-hidden="true"></i>User
+                        </a>
+                    <?php endif; ?>
                     <hr class="soft my-1 bg-white">
                     <a class="nav-link px-3" href="../../logout.php">
                         <i class="" aria-hidden="true"></i>LogOut
@@ -279,12 +279,12 @@ session_start();
                                                 <td><?php echo $hasil['deskripsi'] ?></td>
                                                 <td><?php echo $hasil['status_wisata'] ?></td>
                                                 <td>
-                                                <button class="btn btn-warning"><a href="edit.php?id=<?php echo $hasil['id']; ?>" style="color: black; text-decoration:none;">Edit</a></button>
+                                                    <button class="btn btn-warning"><a href="edit.php?id=<?php echo $hasil['id']; ?>" style="color: black; text-decoration:none;">Edit</a></button>
 
                                                     <button class="btn btn-danger"><a href="delete.php?id=<?php echo $hasil['id']; ?>" style="color: white; text-decoration:none;" onclick="return confirm('Apakah Anda yakin ingin menghapus data?')">Hapus</a></button>
                                                 </td>
                                             </tr>
-                                        <?php 
+                                        <?php
                                         }
                                         ?>
                                     </tbody>
