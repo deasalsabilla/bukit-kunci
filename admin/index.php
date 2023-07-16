@@ -2,7 +2,7 @@
 include "./assets/conn/koneksi.php";
 session_start();
 
-if(!isset($_SESSION['login'])){
+if (!isset($_SESSION['login'])) {
     header("location: login.php");
     exit;
 }
@@ -11,7 +11,7 @@ if(!isset($_SESSION['login'])){
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">  
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wisata Desa Bangowan | Admin</title>
@@ -30,8 +30,8 @@ if(!isset($_SESSION['login'])){
                 <button class="btn btn-default" id="btn-slider" type="button">
                     <i class="fa fa-bars fa-lg" aria-hidden="true"></i>
                 </button>
-                <a class="navbar-brand me-auto text-danger" href="#">Dash<span class="text-warning">Board</span></a>
-                <ul class="nav ms-auto">
+                <a class="navbar-brand me-auto text-danger" href="#">Desa<span class="text-warning">Bangowan</span></a>
+                <!-- <ul class="nav ms-auto">
                     <li class="nav-item dropstart">
                         <a class="nav-link text-dark ps-3" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
                             <i class="fa fa-bell fa-lg py-2" aria-hidden="true"></i>
@@ -95,7 +95,7 @@ if(!isset($_SESSION['login'])){
                             </a>
                         </div>
                     </li>
-                </ul>
+                </ul> -->
             </div>
         </nav>
         <!--end Navbar-->
@@ -120,28 +120,28 @@ if(!isset($_SESSION['login'])){
                     <!-- <a class="nav-link px-3" href="./menu/profile/index.php">
                         <i class="" aria-hidden="true"></i>Profile
                     </a> -->
-                    
+
                     <a class="nav-link px-3" href="./menu/berita/index.php">
                         <i class="" aria-hidden="true"></i>Berita
                     </a>
-                    <?php if($_SESSION['level'] == "admin"): ?>
-                    <a class="nav-link px-3" href="./menu/kelolawisata/index.php">
-                        <i class="" aria-hidden="true"></i>Kelola Wisata
-                    </a>
+                    <?php if ($_SESSION['level'] == "admin") : ?>
+                        <a class="nav-link px-3" href="./menu/kelolawisata/index.php">
+                            <i class="" aria-hidden="true"></i>Kelola Wisata
+                        </a>
 
-                    <a class="nav-link px-3" href="./menu/kelolafoto/index.php">
-                        <i class="" aria-hidden="true"></i>Kelola Foto
-                    </a>
+                        <a class="nav-link px-3" href="./menu/kelolafoto/index.php">
+                            <i class="" aria-hidden="true"></i>Kelola Foto
+                        </a>
 
-                    <!-- <a class="nav-link px-3" href="./menu/laporan/index.php">
+                        <!-- <a class="nav-link px-3" href="./menu/laporan/index.php">
                         <i class="" aria-hidden="true"></i>Laporan
                     </a> -->
 
-                    <a class="nav-link px-3" href="./menu/user/index.php">
-                        <i class="" aria-hidden="true"></i>User
-                    </a>
-                    <?php endif;?>
-                    
+                        <a class="nav-link px-3" href="./menu/user/index.php">
+                            <i class="" aria-hidden="true"></i>User
+                        </a>
+                    <?php endif; ?>
+
                     <hr class="soft my-1 bg-white">
                     <a class="nav-link px-3" href="logout.php">
                         <i class="" aria-hidden="true"></i>LogOut

@@ -27,8 +27,8 @@ session_start();
                     <button class="btn btn-default" id="btn-slider" type="button">
                         <i class="fa fa-bars fa-lg" aria-hidden="true"></i>
                     </button>
-                    <a class="navbar-brand me-auto text-danger" href="#">Dash<span class="text-warning">Board</span></a>
-                    <ul class="nav ms-auto">
+                    <a class="navbar-brand me-auto text-danger" href="#">Desa<span class="text-warning">Bangowan</span></a>
+                    <!-- <ul class="nav ms-auto">
                         <li class="nav-item dropstart">
                             <a class="nav-link text-dark ps-3" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
                                 <i class="fa fa-bell fa-lg py-2" aria-hidden="true"></i>
@@ -92,7 +92,7 @@ session_start();
                                 </a>
                             </div>
                         </li>
-                    </ul>
+                    </ul> -->
                 </div>
             </nav>
             <!-- end navbar-->
