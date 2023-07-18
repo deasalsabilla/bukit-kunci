@@ -188,7 +188,7 @@ session_start();
                 <div class="row g-2 mb-3">
                     <div class="col-12">
                         <div class="d-block bg-white rounded shadow p-3">
-                            <h2>Update Foto</h2>
+                            <h2>Tambah Foto</h2>
                             <button type="button" class="btn btn-block btn-primary" onclick="hiden1()"> Tambah
                                 Foto</button>
                             <p></p>
