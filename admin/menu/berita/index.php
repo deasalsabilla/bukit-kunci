@@ -242,7 +242,7 @@ session_start();
                     </script>
 
                     <div class="card-header">
-                        <h4 class="card-title">Galeri Foto</h4>
+                        <h4 class="card-title">Berita</h4>
                     </div>
                     <div class="card-body table-responsive p-0">
                         <table class="table table-hover text-nowrap">
