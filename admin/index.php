@@ -133,9 +133,9 @@ if (!isset($_SESSION['login'])) {
                             <i class="" aria-hidden="true"></i>Kelola Foto
                         </a>
 
-                        <a class="nav-link px-3" href="../../menu/reservasi/index.php">
+                        <!-- <a class="nav-link px-3" href="../../menu/reservasi/index.php">
                             <i class="" aria-hidden="true"></i>Reservasi
-                        </a>
+                        </a> -->
 
                         <a class="nav-link px-3" href="./menu/user/index.php">
                             <i class="" aria-hidden="true"></i>User

@@ -129,9 +129,9 @@ session_start();
                         <a class="nav-link px-3" href="../../menu/kelolafoto/index.php">
                             <i class="" aria-hidden="true"></i>Kelola Foto
                         </a>
-                        <a class="nav-link px-3" href="../../menu/reservasi/index.php">
+                        <!-- <a class="nav-link px-3" href="../../menu/reservasi/index.php">
                             <i class="" aria-hidden="true"></i>Reservasi
-                        </a>
+                        </a> -->
 
                         <a class="nav-link px-3" href="../../menu/user/index.php">
                             <i class="" aria-hidden="true"></i>User
