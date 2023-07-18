@@ -188,7 +188,7 @@ session_start();
                     <div class="row g-2 mb-3">
                         <div class="col-12">
                             <div class="d-block bg-white rounded shadow p-3">
-                                <h2>Update Berita</h2>
+                                <h2>Tambah Berita</h2>
                                 <button type="button" class="btn btn-block btn-primary" onclick="hiden1()"> Tambah</button>
                                 <p></p>
                             </div>
@@ -266,7 +266,7 @@ session_start();
                                         <td><?php echo $no++ ?></td>
                                         <td><?php echo $hasil['judul'] ?></td>
                                         <td><?php echo $hasil['deskripsi'] ?></td>
-                                        <td><img src="img/<?php echo $hasil['gambar'] ?>" width="125px" height="100px" alt=""></td>
+                                        <td><img src="img/<?php echo $hasil['gambar'] ?>" width="125px" height="125px"></td>
                                         <td><?php echo $hasil['date'] ?></td>
                                         <td>
                                             <button class="btn btn-warning"><a href="edit.php?id=<?php echo $hasil['id']; ?>" style="color: black; text-decoration:none;">Edit</a></button>
