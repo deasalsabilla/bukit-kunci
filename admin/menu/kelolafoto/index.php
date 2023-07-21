@@ -129,7 +129,7 @@ session_start();
                         <a class="nav-link px-3" href="../../menu/kelolafoto/index.php">
                             <i class="" aria-hidden="true"></i>Kelola Foto
                         </a>
-                        
+
                         <!-- <a class="nav-link px-3" href="../../menu/reservasi/index.php">
                             <i class="" aria-hidden="true"></i>Reservasi
                         </a> -->
@@ -154,6 +154,7 @@ session_start();
         if (isset($_POST['submit'])) {
             $nama = $_POST['nama'];
             $deskripsi = $_POST['caption'];
+            $wisata = $_POST['wisata'];
             $imgfile = $_FILES['postimage']['name'];
             $tmp_file = $_FILES['postimage']['tmp_name'];
             $extension = substr($imgfile, strlen($imgfile) - 4, strlen($imgfile));
@@ -174,7 +175,7 @@ session_start();
 
                 move_uploaded_file($tmp_file, $dir . $imgnewfile);
 
-                $query = mysqli_query($koneksi, "insert into tb_img(postimage,nama,caption,isActive) values('$imgnewfile','$nama','$deskripsi','$active')");
+                $query = mysqli_query($koneksi, "insert into tb_img(postimage,nama,caption,wisata,isActive) values('$imgnewfile','$nama','$deskripsi','$wisata','$active')");
                 if ($query) {
                     echo "<script>alert('berhasil');</script>";
                 } else {
@@ -220,12 +221,21 @@ session_start();
                                         <label for="postimage">Upload Gambar</label>
                                         <input type="file" class="form-control" name="postimage">
                                     </div>
+                                    <div class="form-group">
+                                        <label for="wisata">Wisata</label>
+                                        <select class="form-control" name="wisata">
+                                            <option value="">--Pilih--</option>
+                                            <option value="kebunsawo" <?php if ($wisata == "kebunsawo") echo "selected" ?>>Kebun Sawo Organik</option>
+                                            <option value="wayangthengul" <?php if ($wisata == "wayangthengul") echo "selected" ?>>Wayang Thengul</option>
+                                            <option value="bukitkunci" <?php if ($wisata == "bukitkunci") echo "selected" ?>>Bukit Kunci</option>
+                                        </select>
+                                    </div>
 
                                 </div>
                                 <!-- /.card-body -->
 
                                 <div class="card-footer">
-                                    <button type="submit" name="submit" id="submit" class="btn btn-primary">Submit</button>
+                                    <button type="submit" name="submit" id="submit" class="btn btn-primary" onclick="return confirm('Apakah Anda Yakin Ingin Menambahkan Data Kelola Foto?')">Submit</button>
                                 </div>
                             </form>
                         </div>
