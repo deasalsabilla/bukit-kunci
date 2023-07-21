@@ -19,6 +19,7 @@ if (!isset($_SESSION['login'])) {
     <link rel="stylesheet" href="./assets/icons/css/font-awesome.min.css">
     <link rel="stylesheet" href="./dist/css/index.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="shortcut icon" href="images/logodesa.ico">
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 </head>
 
