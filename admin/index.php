@@ -166,7 +166,7 @@ if (!isset($_SESSION['login'])) {
                     <div class="col-12 col-sm-6 col-md-6 col-lg-3">
                         <div class="card p-2 shadow">
                             <div class="d-flex align-items-center px-2">
-                                <i class="fa fa-plane float-start fa-3x py-auto" aria-hidden="true"></i>
+                                <i class="fa fa-newspaper-o float-start fa-3x py-auto" aria-hidden="true"></i>
                                 <div class="card-body text-end">
                                     <h5 class="card-title">122</h5>
                                     <p class="card-text">Planning</p>
@@ -180,7 +180,7 @@ if (!isset($_SESSION['login'])) {
                     <div class="col-12 col-sm-6 col-md-6 col-lg-3">
                         <div class="card p-2 shadow">
                             <div class="d-flex align-items-center px-2">
-                                <i class="fa fa-money fa-3x py-auto" aria-hidden="true"></i>
+                                <i class="fa fa-tree fa-3x py-auto" aria-hidden="true"></i>
                                 <div class="card-body text-end">
                                     <h5 class="card-title">Rp.123</h5>
                                     <p class="card-text">anggaran</p>
@@ -194,7 +194,7 @@ if (!isset($_SESSION['login'])) {
                     <div class="col-12 col-sm-6 col-md-6 col-lg-3">
                         <div class="card p-2 shadow">
                             <div class="d-flex align-items-center px-2">
-                                <i class="fa fa-calendar float-start fa-3x py-auto" aria-hidden="true"></i>
+                                <i class="fa fa-picture-o float-start fa-3x py-auto" aria-hidden="true"></i>
                                 <div class="card-body text-end">
                                     <h5 class="card-title">122</h5>
                                     <p class="card-text">Planning</p>
