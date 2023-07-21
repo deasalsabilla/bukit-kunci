@@ -177,9 +177,9 @@ session_start();
 
                 $query = mysqli_query($koneksi, "insert into tb_img(postimage,nama,caption,wisata,isActive) values('$imgnewfile','$nama','$deskripsi','$wisata','$active')");
                 if ($query) {
-                    echo "<script>alert('berhasil');</script>";
+                    echo "<script>alert('Data Berhasil ditambahkan');</script>";
                 } else {
-                    echo "<script>alert('Gagal');</script>";
+                    echo "<script>alert('Data Gagal ditambahkan');</script>";
                 }
             }
         }
