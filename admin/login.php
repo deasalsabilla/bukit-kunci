@@ -46,12 +46,11 @@ if (isset($_POST['login'])) {
 <html>
 
 <head>
-    <title>LOGIN MULTIUSER PHP</title>
+    <title>LOGIN ADMIN | Wisata Desa Bangowan</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body>
-
     <?php
     if (isset($_GET['pesan'])) {
         if ($_GET['pesan'] == "gagal") {
@@ -69,9 +68,9 @@ if (isset($_POST['login'])) {
 
             <label>Password</label>
             <input type="password" name="password" id="pass" class="form_login" placeholder="Password" required="required">
-
+            <br>
             <input type="checkbox" onclick="myFunction()">Show Password
-
+            <br>
             <br>
             <input type="submit" class="tombol_login" value="LOGIN" name="login" id="login">
 
