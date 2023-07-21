@@ -270,13 +270,23 @@ session_start();
                                         $no = 1;
                                         $data = mysqli_query($koneksi, "SELECT * FROM tb_wisata");
                                         while ($hasil = mysqli_fetch_array($data)) {
+                                            $status = $hasil['status_wisata'];
+                                            $badge_class = '';
+                                            $badge_text = '';
+                                            if ($status == 'aktif') {
+                                                $badge_class = 'bg-success';
+                                                $badge_text = 'Aktif';
+                                            } elseif ($status == 'nonaktif') {
+                                                $badge_class = 'bg-danger';
+                                                $badge_text = 'Non-aktif';
+                                            }
                                         ?>
                                             <tr>
                                                 <td><?php echo $no++ ?></td>
                                                 <td><?php echo $hasil['nama'] ?></td>
                                                 <td><?php echo $hasil['lokasi'] ?></td>
                                                 <td><?php echo $hasil['deskripsi'] ?></td>
-                                                <td><?php echo $hasil['status_wisata'] ?></td>
+                                                <?php echo '<td><span class="badge ' . $badge_class . '">' . $badge_text . '</span></td>'; ?>
                                                 <td>
                                                     <button class="btn btn-warning"><a href="edit.php?id=<?php echo $hasil['id']; ?>" style="color: black; text-decoration:none;">Edit</a></button>
 
