@@ -216,8 +216,8 @@ session_start();
                                         <label for="level">Status User</label>
                                         <select name="level" class="form-control">
                                             <option value="">--Pilih--</option>
-                                            <option value="admin" <?php if ($level == "admin") echo "selected" ?>>admin</option>
-                                            <option value="adminberita" <?php if ($level == "adminberita") echo "selected" ?>>admin berita</option>
+                                            <option value="admin" <?php if ($level == "admin") echo "selected" ?>>Admin</option>
+                                            <option value="adminberita" <?php if ($level == "adminberita") echo "selected" ?>>Admin Berita</option>
                                         </select>
                                     </div>
 
@@ -280,14 +280,23 @@ session_start();
                                         $no = 1;
                                         $query = mysqli_query($koneksi, "SELECT * FROM tb_user");
                                         while ($row = mysqli_fetch_array($query)) {
-
+                                            $status = $row['level'];
+                                            $badge_class = '';
+                                            $badge_text = '';
+                                            if ($status == 'admin') {
+                                                $badge_class = 'bg-primary';
+                                                $badge_text = 'Admin';
+                                            } elseif ($status == 'adminberita') {
+                                                $badge_class = 'bg-danger';
+                                                $badge_text = 'Admin Berita';
+                                            }
                                         ?>
                                             <tr align="center">
                                                 <td><?php echo $no++ ?></td>
                                                 <td><?php echo $row['nama'] ?></td>
                                                 <td><?php echo $row['username'] ?></td>
                                                 <td><?php echo $row['password'] ?></td>
-                                                <td><?php echo $row['level'] ?></td>
+                                                <?php echo '<td><span class="badge ' . $badge_class . '">' . $badge_text . '</span></td>'; ?>
 
                                             </tr>
                                         <?php } ?>
