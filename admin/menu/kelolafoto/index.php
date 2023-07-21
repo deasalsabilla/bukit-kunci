@@ -265,6 +265,7 @@ session_start();
                                 <th>Gambar</th>
                                 <th>Nama</th>
                                 <th>Deskripsi</th>
+                                <th>Wisata</th>
                                 <th>Tanggal Posting</th>
                                 <th></th>
                             </tr>
@@ -280,6 +281,7 @@ session_start();
                                     <td><img src="img/<?php echo $hasil['postimage'] ?>" width="125px" height="125px"></td>
                                     <td><?php echo $hasil['nama'] ?></td>
                                     <td><?php echo $hasil['caption'] ?></td>
+                                    <td><?php echo $hasil['wisata'] ?></td>
                                     <td><?php echo $hasil['postDate'] ?></td>
                                     <td>
                                         <button class="btn btn-warning"><a href="edit.php?id=<?php echo $hasil['id']; ?>" style="color: black; text-decoration:none;">Edit</a></button>
