@@ -275,13 +275,26 @@ session_start();
                             $no = 1;
                             $data = mysqli_query($koneksi, "SELECT * FROM tb_img");
                             while ($hasil = mysqli_fetch_array($data)) {
+                                $wisata2 = $hasil['wisata'];
+                                $badge_class = '';
+                                $badge_text = '';
+                                if ($wisata2 == 'kebunsawo') {
+                                    $badge_class = 'bg-primary';
+                                    $badge_text = 'Kebun Sawo';
+                                } elseif ($wisata2 == 'wayangthengul') {
+                                    $badge_class = 'bg-success';
+                                    $badge_text = 'Wayang Thengul';
+                                } elseif ($wisata2 == 'bukitkunci') {
+                                    $badge_class = 'bg-warning';
+                                    $badge_text = 'Bukit Kunci';
+                                }
                             ?>
                                 <tr>
                                     <td><?php echo $no++ ?></td>
                                     <td><img src="img/<?php echo $hasil['postimage'] ?>" width="125px" height="125px"></td>
                                     <td><?php echo $hasil['nama'] ?></td>
                                     <td><?php echo $hasil['caption'] ?></td>
-                                    <td><?php echo $hasil['wisata'] ?></td>
+                                    <?php echo '<td><span class="badge ' . $badge_class . '">' . $badge_text . '</span></td>'; ?>
                                     <td><?php echo $hasil['postDate'] ?></td>
                                     <td>
                                         <button class="btn btn-warning"><a href="edit.php?id=<?php echo $hasil['id']; ?>" style="color: black; text-decoration:none;">Edit</a></button>
