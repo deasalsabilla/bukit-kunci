@@ -221,19 +221,6 @@ if (!isset($_SESSION['login'])) {
                     </div>
                 </div>
 
-                <div class="row g-2">
-                    <div class="col-12 col-lg-6">
-                        <div class="d-block rounded shadow bg-white p-3">
-                            <canvas id="myChartOne"></canvas>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-6">
-                        <div class="d-block rounded shadow bg-white p-3">
-                            <canvas id="myChartTwo"></canvas>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
     </div>
