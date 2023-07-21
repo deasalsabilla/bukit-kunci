@@ -235,7 +235,7 @@ session_start();
                                 <!-- /.card-body -->
 
                                 <div class="card-footer">
-                                    <button type="submit" name="submit" id="submit" class="btn btn-primary" onclick="return confirm('Apakah Anda Yakin Ingin Menambahkan Data Kelola Foto?')">Submit</button>
+                                    <button type="submit" name="submit" id="submit" class="btn btn-primary" onclick="return confirm('Apakah Anda Yakin Ingin Menambahkan Data?')">Submit</button>
                                 </div>
                             </form>
                         </div>
