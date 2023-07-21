@@ -33,7 +33,7 @@ $data = mysqli_fetch_array($query);
                 <form action="" method="POST" class="form-item">
                     <div class="form-group">
                         <label for="postimage">Gambar</label>
-                        <input type="text" name="postimage" class="form-control col-md-9" value="<?php echo $data['postimage']; ?>" readonly >
+                        <input type="text" name="postimage" class="form-control col-md-9" value="<?php echo $data['postimage']; ?>" readonly>
                     </div> <br>
                     <div class="form-group">
                         <label for="nama">Nama Foto</label>
@@ -43,7 +43,15 @@ $data = mysqli_fetch_array($query);
                         <label for="caption">Deskripsi</label>
                         <input type="text" name="caption" class="form-control col-md-9" value="<?php echo $data['caption']; ?>">
                     </div> <br>
-
+                    <div class="form-group">
+                        <label for="wisata">Wisata</label>
+                        <select class="form-control" name="wisata">
+                            <option value="">--Pilih--</option>
+                            <option value="kebunsawo" <?php if ($data['wisata'] == "kebunsawo") echo "selected" ?>>Kebun Sawo Organik</option>
+                            <option value="wayangthengul" <?php if ($data['wisata'] == "wayangthengul") echo "selected" ?>>Wayang Thengul</option>
+                            <option value="bukitkunci" <?php if ($data['wisata'] == "bukitkunci") echo "selected" ?>>Bukit Kunci</option>
+                        </select>
+                    </div>
                     <button type="submit" class="btn btn-primary" name="simpan" value="simpan" onclick="return confirm('Apakah Anda Yakin Ingin Mengubah Data?')">Simpan</button>
                     <button type="reset" class="btn btn-danger">Batal</button>
                     <button class="btn btn-secondary"><a href="index.php" style="color:#ffff; text-decoration:none;">Kembali</a></button>
@@ -54,11 +62,12 @@ $data = mysqli_fetch_array($query);
             <?php
             include "../../assets/conn/koneksi.php";
 
-            $nama       = $_POST['nama'];
-            $caption     = $_POST['caption'];
-
             if (isset($_POST['simpan'])) {
-                $hasil = mysqli_query($koneksi, "UPDATE tb_img SET nama = '$nama', caption = '$caption' WHERE id= '$id'") or die(mysqli_error(($koneksi)));
+                $nama       = $_POST['nama'];
+                $caption     = $_POST['caption'];
+                $wisata = $_POST['wisata'];
+
+                $hasil = mysqli_query($koneksi, "UPDATE tb_img SET nama = '$nama', caption = '$caption', wisata = '$wisata' WHERE id= '$id'") or die(mysqli_error(($koneksi)));
 
                 if ($hasil) {
                     echo "<script> alert('Data Berhasil diubah')</script>";
