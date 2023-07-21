@@ -48,6 +48,7 @@ if (isset($_POST['login'])) {
 <head>
     <title>LOGIN ADMIN | Wisata Desa Bangowan</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="shortcut icon" href="images/logodesa.ico">
 </head>
 
 <body>
