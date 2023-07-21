@@ -169,11 +169,11 @@ if (!isset($_SESSION['login'])) {
                                 <i class="fa fa-newspaper-o float-start fa-3x py-auto" aria-hidden="true"></i>
                                 <div class="card-body text-end">
                                     <h5 class="card-title">122</h5>
-                                    <p class="card-text">Planning</p>
+                                    <p class="card-text">Berita</p>
                                 </div>
                             </div>
                             <div class="card-footer bg-white">
-                                <small class="text-start fw-bold">Your Planning</small>
+                                <small class="text-start fw-bold">Jumlah Berita</small>
                             </div>
                         </div>
                     </div>
@@ -183,11 +183,11 @@ if (!isset($_SESSION['login'])) {
                                 <i class="fa fa-tree fa-3x py-auto" aria-hidden="true"></i>
                                 <div class="card-body text-end">
                                     <h5 class="card-title">Rp.123</h5>
-                                    <p class="card-text">anggaran</p>
+                                    <p class="card-text">Wisata</p>
                                 </div>
                             </div>
                             <div class="card-footer bg-white">
-                                <small class="text-start fw-bold">Anggaran</small>
+                                <small class="text-start fw-bold">Jumlah Wisata</small>
                             </div>
                         </div>
                     </div>
@@ -197,11 +197,11 @@ if (!isset($_SESSION['login'])) {
                                 <i class="fa fa-picture-o float-start fa-3x py-auto" aria-hidden="true"></i>
                                 <div class="card-body text-end">
                                     <h5 class="card-title">122</h5>
-                                    <p class="card-text">Planning</p>
+                                    <p class="card-text">Foto</p>
                                 </div>
                             </div>
                             <div class="card-footer bg-white">
-                                <small class="text-start fw-bold">Your Schedule</small>
+                                <small class="text-start fw-bold">Jumlah Foto</small>
                             </div>
                         </div>
                     </div>
@@ -211,11 +211,11 @@ if (!isset($_SESSION['login'])) {
                                 <i class="fa fa-users float-start fa-3x py-auto" aria-hidden="true"></i>
                                 <div class="card-body text-end">
                                     <h5 class="card-title">122</h5>
-                                    <p class="card-text">Jumlah pengunjung</p>
+                                    <p class="card-text">User</p>
                                 </div>
                             </div>
                             <div class="card-footer bg-white">
-                                <small class="text-start fw-bold">Pengunjung</small>
+                                <small class="text-start fw-bold">Jumlah User</small>
                             </div>
                         </div>
                     </div>
