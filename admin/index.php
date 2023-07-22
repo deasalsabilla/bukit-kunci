@@ -6,6 +6,26 @@ if (!isset($_SESSION['login'])) {
     header("location: login.php");
     exit;
 }
+
+$berita_sql = "SELECT COUNT(*) AS total_berita FROM tb_berita";
+$berita_result = mysqli_query($koneksi, $berita_sql);
+$berita_row = mysqli_fetch_assoc($berita_result);
+$berita_count = $berita_row['total_berita'];
+
+$wisata_sql = "SELECT COUNT(*) AS total_wisata FROM tb_wisata";
+$wisata_result = mysqli_query($koneksi, $wisata_sql);
+$wisata_row = mysqli_fetch_assoc($wisata_result);
+$wisata_count = $wisata_row['total_wisata'];
+
+$foto_sql = "SELECT COUNT(*) AS total_foto FROM tb_img";
+$foto_result = mysqli_query($koneksi, $foto_sql);
+$foto_row = mysqli_fetch_assoc($foto_result);
+$foto_count = $foto_row['total_foto'];
+
+$user_sql = "SELECT COUNT(*) AS total_user FROM tb_user";
+$user_result = mysqli_query($koneksi, $user_sql);
+$user_row = mysqli_fetch_assoc($user_result);
+$user_count = $user_row['total_user'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -95,7 +115,7 @@ if (!isset($_SESSION['login'])) {
                             <div class="d-flex align-items-center px-2">
                                 <i class="fa fa-newspaper-o float-start fa-3x py-auto" aria-hidden="true"></i>
                                 <div class="card-body text-end">
-                                    <h5 class="card-title">122</h5>
+                                    <h5 class="card-title"><?php echo $berita_count; ?></h5>
                                     <p class="card-text">Berita</p>
                                 </div>
                             </div>
@@ -109,7 +129,7 @@ if (!isset($_SESSION['login'])) {
                             <div class="d-flex align-items-center px-2">
                                 <i class="fa fa-tree fa-3x py-auto" aria-hidden="true"></i>
                                 <div class="card-body text-end">
-                                    <h5 class="card-title">Rp.123</h5>
+                                    <h5 class="card-title"><?php echo $wisata_count; ?></h5>
                                     <p class="card-text">Wisata</p>
                                 </div>
                             </div>
@@ -123,7 +143,7 @@ if (!isset($_SESSION['login'])) {
                             <div class="d-flex align-items-center px-2">
                                 <i class="fa fa-picture-o float-start fa-3x py-auto" aria-hidden="true"></i>
                                 <div class="card-body text-end">
-                                    <h5 class="card-title">122</h5>
+                                    <h5 class="card-title"><?php echo $foto_count; ?></h5>
                                     <p class="card-text">Foto</p>
                                 </div>
                             </div>
@@ -137,7 +157,7 @@ if (!isset($_SESSION['login'])) {
                             <div class="d-flex align-items-center px-2">
                                 <i class="fa fa-users float-start fa-3x py-auto" aria-hidden="true"></i>
                                 <div class="card-body text-end">
-                                    <h5 class="card-title">122</h5>
+                                    <h5 class="card-title"><?php echo $user_count; ?></h5>
                                     <p class="card-text">User</p>
                                 </div>
                             </div>
