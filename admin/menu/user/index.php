@@ -115,7 +115,7 @@ session_start();
                             if (isset($_POST['simpan'])) {
                                 if (tambahuser($_POST) > 0) {
                                     echo "<script>
-                                            alert('User baru berhasil ditambahkan');
+                                            alert('User Baru Berhasil ditambahkan');
                                         </script>";
                                     header("Location: index.php");
                                 } else {
