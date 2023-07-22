@@ -87,7 +87,10 @@ session_start();
             $deskripsi = $_POST['deskripsi'];
             $status = $_POST['status_wisata'];
 
-            $sql1 = "INSERT INTO tb_wisata (nama, lokasi, deskripsi, status_wisata) VALUES ('$nama', '$lokasi', '$deskripsi', '$status')";
+            // Ubah input menjadi huruf kecil dan hapus spasi, lalu simpan ke dalam kolom "def"
+            $nm_kecil = strtolower(str_replace(' ', '', $nama));
+
+            $sql1 = "INSERT INTO tb_wisata (nama, lokasi, deskripsi, status_wisata,nm_kecil) VALUES ('$nama', '$lokasi', '$deskripsi', '$status','$nm_kecil')";
             $q1 = mysqli_query($koneksi, $sql1);
             if ($q1) {
                 echo "<script> alert('Data Berhasil Di simpan')</script>";

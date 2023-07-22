@@ -43,7 +43,7 @@ $data = mysqli_fetch_array($query);
                     </div>
                     <div class="form-group">
                         <label for="status_wisata">Status Wisata</label>
-                        <select class="form-control" name="status_wisata" id="status_wisata" aria-label="Default select example">   
+                        <select class="form-control" name="status_wisata" id="status_wisata" aria-label="Default select example">
                             <option value="">--Pilih--</option>
                             <option value="aktif" <?php if ($data['status_wisata'] == "aktif") echo "selected" ?>>Aktif</option>
                             <option value="nonaktif" <?php if ($data['status_wisata'] == "nonaktif") echo "selected" ?>>Non-aktif</option>
@@ -63,9 +63,11 @@ $data = mysqli_fetch_array($query);
             $lokasi     = $_POST['lokasi'];
             $deskripsi  = $_POST['deskripsi'];
             $status     = $_POST['status_wisata'];
+            // Ubah input menjadi huruf kecil dan hapus spasi, lalu simpan ke dalam kolom "def"
+            $nm_kecil = strtolower(str_replace(' ', '', $nama));
 
             if (isset($_POST['simpan'])) {
-                $hasil = mysqli_query($koneksi, "UPDATE tb_wisata SET nama = '$nama', lokasi = '$lokasi' , deskripsi = '$deskripsi', status_wisata ='$status' WHERE id= '$id'") or die(mysqli_error(($koneksi)));
+                $hasil = mysqli_query($koneksi, "UPDATE tb_wisata SET nama = '$nama', lokasi = '$lokasi' , deskripsi = '$deskripsi', status_wisata ='$status', nm_kecil = '$nm_kecil' WHERE id= '$id'") or die(mysqli_error(($koneksi)));
 
                 if ($hasil) {
                     echo "<script> alert('Data Berhasil Di ubah')</script>";

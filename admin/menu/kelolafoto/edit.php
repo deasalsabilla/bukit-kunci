@@ -3,7 +3,8 @@ include "../../assets/conn/koneksi.php";
 
 $id = $_GET['id'];
 $query = mysqli_query($koneksi, "SELECT * FROM tb_img WHERE id='$id'");
-$data = mysqli_fetch_array($query);
+$data = mysqli_fetch_assoc($query);
+$wisata2 = $data['wisata'];
 ?>
 
 <!DOCTYPE html>
@@ -43,15 +44,31 @@ $data = mysqli_fetch_array($query);
                         <label for="caption">Deskripsi</label>
                         <input type="text" name="caption" class="form-control col-md-9" value="<?php echo $data['caption']; ?>">
                     </div> <br>
-                    <div class="form-group">
-                        <label for="wisata">Wisata</label>
-                        <select class="form-control" name="wisata">
-                            <option value="">--Pilih--</option>
-                            <option value="kebunsawo" <?php if ($data['wisata'] == "kebunsawo") echo "selected" ?>>Kebun Sawo Organik</option>
-                            <option value="wayangthengul" <?php if ($data['wisata'] == "wayangthengul") echo "selected" ?>>Wayang Thengul</option>
-                            <option value="bukitkunci" <?php if ($data['wisata'] == "bukitkunci") echo "selected" ?>>Bukit Kunci</option>
-                        </select>
-                    </div>
+                    <?php
+                    include "../../assets/conn/koneksi.php";
+                    // Langkah 3: Bangun elemen <select> dengan opsi yang diambil dari database
+                    echo '<div class="form-group">';
+                    echo '<label for="wisata">Wisata</label>';
+                    echo '<select class="form-control" name="wisata">';
+                    echo '<option value="">--Pilih--</option>';
+
+                    $sql = "SELECT nama, nm_kecil FROM tb_wisata"; // Ganti 'nama_tabel' dengan nama tabel Anda
+                    $result = mysqli_query($koneksi, $sql);
+
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        $value = $row['nm_kecil'];
+                        $label = $row['nama'];
+
+                        // Periksa apakah opsi saat ini harus ditandai sebagai "selected"
+                        $selected = ($wisata2 == $value) ? "selected" : "";
+
+                        echo '<option value="' . $value . '" ' . $selected . '>' . $label . '</option>';
+                    }
+
+                    echo '</select>';
+                    echo '</div>';
+
+                    ?>
                     <button type="submit" class="btn btn-primary" name="simpan" value="simpan" onclick="return confirm('Apakah Anda Yakin Ingin Mengubah Data?')">Simpan</button>
                     <button type="reset" class="btn btn-danger">Batal</button>
                     <button class="btn btn-secondary"><a href="index.php" style="color:#ffff; text-decoration:none;">Kembali</a></button>

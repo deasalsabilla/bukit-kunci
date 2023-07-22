@@ -149,15 +149,33 @@ session_start();
                                         <label for="postimage">Upload Gambar</label>
                                         <input type="file" class="form-control" name="postimage">
                                     </div>
-                                    <div class="form-group">
-                                        <label for="wisata">Wisata</label>
-                                        <select class="form-control" name="wisata">
-                                            <option value="">--Pilih--</option>
-                                            <option value="kebunsawo" <?php if ($wisata == "kebunsawo") echo "selected" ?>>Kebun Sawo Organik</option>
-                                            <option value="wayangthengul" <?php if ($wisata == "wayangthengul") echo "selected" ?>>Wayang Thengul</option>
-                                            <option value="bukitkunci" <?php if ($wisata == "bukitkunci") echo "selected" ?>>Bukit Kunci</option>
-                                        </select>
-                                    </div>
+                                    <?php
+
+                                    $sql = "SELECT nama, nm_kecil FROM tb_wisata"; // Ganti 'nama_tabel' dengan nama tabel Anda
+                                    $result = mysqli_query($koneksi, $sql);;
+
+                                    // Langkah 3: Bangun elemen <select> dengan opsi yang diambil dari database
+                                    echo '<div class="form-group">';
+                                    echo '<label for="wisata">Wisata</label>';
+                                    echo '<select class="form-control" name="wisata">';
+                                    echo '<option value="">--Pilih--</option>';
+
+                                    if ($result->num_rows > 0) {
+                                        while ($row = mysqli_fetch_assoc($result)) {
+                                            $value = $row['nm_kecil'];
+                                            $label = $row['nama'];
+
+                                            // Periksa apakah opsi saat ini harus ditandai sebagai "selected"
+                                            $selected = ($wisata == $value) ? "selected" : "";
+
+                                            echo '<option value="' . $value . '" ' . $selected . '>' . $label . '</option>';
+                                        }
+                                    }
+
+                                    echo '</select>';
+                                    echo '</div>';
+
+                                    ?>
 
                                 </div>
                                 <!-- /.card-body -->
