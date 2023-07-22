@@ -136,8 +136,8 @@ session_start();
                                         <label for="status_wisata">Status</label>
                                         <select class="form-control" name="status_wisata">
                                             <option value="">--Pilih--</option>
-                                            <option value="aktif" <?php if ($status == "aktif") echo "selected" ?>>aktif</option>
-                                            <option value="nonaktif" <?php if ($status == "nonaktif") echo "selected" ?>>non-aktif</option>
+                                            <option value="aktif" <?php if ($status == "aktif") echo "selected" ?>>Aktif</option>
+                                            <option value="nonaktif" <?php if ($status == "nonaktif") echo "selected" ?>>Non-aktif</option>
                                         </select>
                                     </div>
 
