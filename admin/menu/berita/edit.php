@@ -61,10 +61,10 @@ $data = mysqli_fetch_array($query);
                 $hasil = mysqli_query($koneksi, "UPDATE tb_berita SET judul = '$judul', deskripsi = '$deskripsi' WHERE id= '$id'") or die(mysqli_error(($koneksi)));
 
                 if ($hasil) {
-                    echo "<script> alert('Data Berhasil Di ubah')</script>";
+                    echo "<script> alert('Data Berhasil di ubah')</script>";
                     header("refresh:0,index.php");
                 } else {
-                    echo "<script> alert('Data tidak Berhasil Di ubah')</script>";
+                    echo "<script> alert('Data Tidak Berhasil di ubah')</script>";
                     header("refresh:0,index.php");
                 }
             }
