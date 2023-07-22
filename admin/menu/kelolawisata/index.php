@@ -93,9 +93,9 @@ session_start();
             $sql1 = "INSERT INTO tb_wisata (nama, lokasi, deskripsi, status_wisata,nm_kecil) VALUES ('$nama', '$lokasi', '$deskripsi', '$status','$nm_kecil')";
             $q1 = mysqli_query($koneksi, $sql1);
             if ($q1) {
-                echo "<script> alert('Data Berhasil Di simpan')</script>";
+                echo "<script> alert('Data Berhasil ditambahkan')</script>";
             } else {
-                echo "<script> alert('Data Tidak Berhasil Di simpan')</script>";
+                echo "<script> alert('Data Gagal ditambahkan')</script>";
             }
         }
         ?>

@@ -70,10 +70,10 @@ $data = mysqli_fetch_array($query);
                 $hasil = mysqli_query($koneksi, "UPDATE tb_wisata SET nama = '$nama', lokasi = '$lokasi' , deskripsi = '$deskripsi', status_wisata ='$status', nm_kecil = '$nm_kecil' WHERE id= '$id'") or die(mysqli_error(($koneksi)));
 
                 if ($hasil) {
-                    echo "<script> alert('Data Berhasil Di ubah')</script>";
+                    echo "<script> alert('Data Berhasil diubah')</script>";
                     header("refresh:0,index.php");
                 } else {
-                    echo "<script> alert('Data  tidak Berhasil Di ubah')</script>";
+                    echo "<script> alert('Data Gagal diubah')</script>";
                     header("refresh:0,index.php");
                 }
             }
