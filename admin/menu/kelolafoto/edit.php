@@ -64,7 +64,7 @@ $wisata2 = $data['wisata'];
 
                         echo '<option value="' . $value . '" ' . $selected . '>' . $label . '</option>';
                     }
-
+ 
                     echo '</select>';
                     echo '</div>';
 
