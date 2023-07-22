@@ -153,7 +153,7 @@ session_start();
                                 <!-- /.card-body -->
 
                                 <div class="card-footer">
-                                    <button type="submit" name="simpan" class="btn btn-primary">Submit</button>
+                                    <button type="submit" name="simpan" class="btn btn-primary" onclick="return confirm('Apakah Anda Yakin Ingin Menambahkan Data?')">Submit</button>
                                 </div>
                             </form>
                         </div>
