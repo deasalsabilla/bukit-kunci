@@ -56,7 +56,7 @@
       <img src="img/logo sttr.png" style="width: 100px;">
       <img src="img/logo pem nobg.png" style="width: 100px;">
     </div>
-    <video autoplay muted loop id="tm-video">
+    <video autoplay muted loop id="tm-video" style="width:100%; max-height:700px;">
       <source src="video/kunci.mp4" type="video/mp4" />
     </video>
     <i id="tm-video-control-button" class="fas fa-pause"></i>
