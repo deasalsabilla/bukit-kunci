@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="fontawesome/css/all.min.css" />
   <link rel="stylesheet" href="css/templatemo-style.css" />
   <link rel="stylesheet" href="css/styleku.css">
+  <link rel="shortcut icon" href="icon/icondesa.ico">
 
 </head>
 
