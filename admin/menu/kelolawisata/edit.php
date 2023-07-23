@@ -17,6 +17,7 @@ $data = mysqli_fetch_array($query);
     <link rel="stylesheet" href="../../dist/css/index.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="../../plugins/ekko-lightbox/ekko-lightbox.css">
+    <link rel="shortcut icon" href="icon/logodesa.ico">
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     <title>Edit</title>
 </head>
