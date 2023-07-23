@@ -11,6 +11,31 @@
   <link rel="stylesheet" href="css/styleku.css">
   <link rel="shortcut icon" href="icon/icondesa.ico">
 
+  <style>
+    .tm-hero {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    #tm-video-container {
+      width: 100%;
+      max-height: 500px;
+    }
+
+    #tm-video {
+      width: 45%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .tm-gallery img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+  </style>
+
 </head>
 
 <body>
@@ -56,7 +81,7 @@
       <img src="img/logo sttr.png" style="width: 100px;">
       <img src="img/logo pem nobg.png" style="width: 100px;">
     </div>
-    <video autoplay muted loop id="tm-video" style="width:100%; max-height:700px;">
+    <video autoplay muted loop id="tm-video">
       <source src="video/kunci.mp4" type="video/mp4" />
     </video>
     <i id="tm-video-control-button" class="fas fa-pause"></i>
