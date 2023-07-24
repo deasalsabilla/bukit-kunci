@@ -9,6 +9,50 @@
     <link rel="stylesheet" href="css/templatemo-style.css" />
     <link rel="stylesheet" href="css/styleku.css">
     <link rel="shortcut icon" href="icon/icondesa.ico">
+    <style>
+        /* Remove position and adjust top and left values */
+    .hero-text {
+      /* position: absolute; */
+      /* top: 50px; */
+      /* left: 120px; */
+      padding: 20px; /* Add some padding to push the logos inside the image */
+    }
+
+    /* Remove overflow: hidden */
+    /*#carouselExampleControls {
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+    }*/
+
+    .carousel-inner {
+      position: relative;
+    }
+
+    .carousel-inner img {
+      object-fit: cover;
+      max-height: 500px;
+      width: 100%;
+    }
+
+    /* Custom styles for the logos */
+    .logo-container {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+    }
+
+    .logo-container img {
+      width: 100px; /* Default width for desktop */
+    }
+
+    /* Responsive styles for smaller devices */
+    @media (max-width: 576px) {
+      .logo-container img {
+        width: 80px; /* Adjust the width for mobile devices */
+      }
+    }
+  </style>
 
   </head>
   <body>
@@ -47,14 +91,15 @@
         </div>
       </div>
     </nav>
-    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" style="width: 100%; overflow: hidden; position: relative;">
-      <div class="carousel-inner" style="width: 100%; max-height: 500px; margin-left: auto; margin-right: auto;">
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="img/poto carosel 0.jpg" class="d-block w-100" alt="" style="object-fit: cover; height: 500px;" />
+          <img src="img/profil2.jpg" class="d-block w-100 img-fluid" alt="Carousel Image"/>
+          <div class="logo-container">
+            <img src="img/logosttr.png" alt="Logo STTR">
+            <img src="img/logo_pem.png" alt="Logo PEM">
+          </div>
         </div>
-      <div class="hero-text" style="position: absolute; top: 50px; left: 120px;">
-        <img src="img/logo sttr.png" style="width: 100px; display: inline-block; margin-right: 10px;">
-        <img src="img/logo pem nobg.png" style="width: 100px; display: inline-block;">
       </div>
     </div>
     
@@ -147,12 +192,14 @@
     <footer class="tm-bg-gray pt-5 pb-3 tm-text-gray tm-footer" id="footer">
       <div class="container-fluid tm-container-small">
         <div class="row">
-          <div style="text-align: center">
+          <div class="col-lg-12 text-center">
             <h3 class="tm-text-primary mb-4 tm-footer-title">Hubungi Kami</h3>
             <p>Silahkan Hubungi kami jika ada pertanyaan</p>
           </div>
-          <div class="col-lg-3 col-md-6 col-sm-6 col-12 px-5 mb-5" style="margin-left: 450px">
-            <ul class="tm-social-links d-flex justify-content-end pl-0 mb-5">
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-lg-3 col-md-6 col-sm-6 col-12 px-5 mb-5">
+            <ul class="tm-social-links d-flex justify-content-center pl-0 mb-5">
               <li class="mb-2">
                 <a href="https://www.facebook.com/profile.html?id=100063555219756" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Facebook"><i class="fab fa-facebook"></i></a>
               </li>
@@ -172,16 +219,15 @@
                 <a href="https://www.youtube.com/channel/UC_KUb-cSOummG-rBOy-2Xbg" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="youtube"><i class="fa fa-play"></i></a>
               </li>
             </ul>
-            
           </div>
         </div>
         <div class="row">
-          <div class="col-lg-8 col-md-7 col-12 px-5 mb-3">Copyright 2022 - STT Ronggolawe - PEM Akamigas Cepu.</div>
-          <div class="col-lg-4 col-md-5 col-12 px-5 text-right">Designed by <a href="https://www.sttrcepu.ac.id/informatikas1/home" class="tm-text-gray" rel="sponsored" target="_parent">Informatika - 2021</a></div>
+          <div class="col-lg-8 col-md-7 col-12 px-5 mb-3 text-center text-md-start">Copyright 2022 - STT Ronggolawe - PEM Akamigas Cepu.</div>
+          <div class="col-lg-4 col-md-5 col-12 px-5 text-center text-md-end">Designed by <a href="https://www.sttrcepu.ac.id/informatikas1/home" class="tm-text-gray" rel="sponsored" target="_parent">Informatika - 2021</a></div>
         </div>
       </div>
     </footer>
-
+    
     <!-- footer End-->
 
     <script src="js/plugins.js"></script>
