@@ -102,6 +102,7 @@
             $result = mysqli_query($koneksi, $query);
 
             while ($row = mysqli_fetch_assoc($result)) {
+              $tanggal_posting = date("d-m-Y", strtotime($row['postDate']));
             ?>
               <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
                 <figure class="effect-ming tm-video-item">
@@ -112,8 +113,7 @@
                   </figcaption>
                 </figure>
                 <div class="d-flex justify-content-between tm-text-gray">
-                  <span class="tm-text-gray-light"><?php echo $row['postDate']; ?></span>
-                  <span>11,402 views</span>
+                  <span class="tm-text-gray-light" style="color:black;"><?php echo $tanggal_posting; ?></span>
                 </div>
               </div>
             <?php
@@ -129,6 +129,7 @@
             $result = mysqli_query($koneksi, $query);
 
             while ($row = mysqli_fetch_array($result)) {
+              $tanggal_posting = date("d-m-Y", strtotime($row['postDate']));
             ?>
               <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
                 <figure class="effect-ming tm-video-item">
@@ -139,8 +140,7 @@
                   </figcaption>
                 </figure>
                 <div class="d-flex justify-content-between tm-text-gray">
-                  <span class="tm-text-gray-light"><?php echo $row['postDate'] ?></span>
-                  <span>11,402 views</span>
+                  <span class="tm-text-gray-light" style="color: black;"><?php echo $tanggal_posting; ?></span>
                 </div>
               </div>
             <?php
@@ -155,6 +155,7 @@
             $result = mysqli_query($koneksi, $query);
 
             while ($row = mysqli_fetch_array($result)) {
+              $tanggal_posting = date("d-m-Y", strtotime($row['postDate']));
             ?>
               <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
                 <figure class="effect-ming tm-video-item">
@@ -165,8 +166,7 @@
                   </figcaption>
                 </figure>
                 <div class="d-flex justify-content-between tm-text-gray">
-                  <span class="tm-text-gray-light"><?php echo $row['postDate'] ?></span>
-                  <span>11,402 views</span>
+                  <span class="tm-text-gray-light" style="color: black;"><?php echo $tanggal_posting; ?></span>
                 </div>
               </div>
             <?php
