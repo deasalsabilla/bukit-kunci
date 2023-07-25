@@ -34,6 +34,63 @@
       height: 200px;
       object-fit: cover;
     }
+
+    .tm-popup-container {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      z-index: 9999;
+    }
+
+    .tm-popup-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      max-width: 80%;
+      max-height: 80%;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .tm-popup-image {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      max-width: 600px;
+      max-height: 400px;
+    }
+
+    .tm-popup-title {
+      font-size: 24px;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 10px;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .tm-popup-close {
+      position: absolute;
+      top: -20px;
+      right: -20px;
+      font-size: 32px;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    /* Custom CSS for mobile (up to 767px) */
+    @media (max-width: 767px) {
+      .custom-align {
+        text-align: center;
+      }
+    }
   </style>
 
 </head>
@@ -96,102 +153,137 @@
         <ul>
           <li>Kebun Sawo Organik</li>
           <div class="row mb-3 tm-gallery">
-            <?php
-            include "admin/assets/conn/koneksi.php";
-            $query = "SELECT postimage, nama, postDate FROM tb_img WHERE isActive = 1 && wisata = 'kebunsawo' ";
-            $result = mysqli_query($koneksi, $query);
+            <div class="container">
+              <div class="row">
+                <!-- Iterasi data gambar dari database -->
+                <?php
+                // Kode untuk mengambil data gambar dari database
+                include "admin/assets/conn/koneksi.php";
+                $query = "SELECT postimage, nama, postDate FROM tb_img WHERE isActive = 1 && wisata = 'kebunsawo' ";
+                $result = mysqli_query($koneksi, $query);
 
-            while ($row = mysqli_fetch_assoc($result)) {
-              $tanggal_posting = date("d-m-Y", strtotime($row['postDate']));
-            ?>
-              <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
-                <figure class="effect-ming tm-video-item">
-                  <img src="admin/menu/kelolafoto/img/<?php echo $row['postimage']; ?>" alt="Image" class="img-fluid">
-                  <figcaption class="d-flex align-items-center justify-content-center">
-                    <h2><?php echo $row['nama']; ?></h2>
-                    <a href="#">View more</a>
-                  </figcaption>
-                </figure>
-                <div class="d-flex justify-content-between tm-text-gray">
-                  <span class="tm-text-gray-light" style="color:black;"><?php echo $tanggal_posting; ?></span>
-                </div>
+                while ($row = mysqli_fetch_assoc($result)) {
+                  $tanggal_posting = date("d-m-Y", strtotime($row['postDate']));
+                ?>
+                  <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+                    <figure class="effect-ming tm-video-item">
+                      <img src="admin/menu/kelolafoto/img/<?php echo $row['postimage']; ?>" alt="Image" class="img-fluid tm-popup-trigger" data-image="admin/menu/kelolafoto/img/<?php echo $row['postimage']; ?>">
+                      <figcaption class="d-flex align-items-center justify-content-center">
+                        <h2><?php echo $row['nama']; ?></h2>
+                        <a href="#" onclick="openPopupKebunSawo('admin/menu/kelolafoto/img/<?php echo $row['postimage']; ?>', '<?php echo $row['nama']; ?>')">View more</a>
+                      </figcaption>
+                    </figure>
+                    <div class="d-flex justify-content-between tm-text-gray">
+                      <span class="tm-text-gray-light" style="color:black;"><?php echo $tanggal_posting; ?></span>
+                    </div>
+                  </div>
+                <?php
+                }
+                ?>
               </div>
-            <?php
-            } ?>
-          </div>
+            </div>
 
-
-          <li>Wayang Thengul</li>
-          <div class="row mb-3 tm-gallery">
-            <?php
-            include "./assets/conn/koneksi.php";
-            $query = "SELECT postimage, nama, postDate FROM tb_img WHERE wisata = 'wayangthengul' ";
-            $result = mysqli_query($koneksi, $query);
-
-            while ($row = mysqli_fetch_array($result)) {
-              $tanggal_posting = date("d-m-Y", strtotime($row['postDate']));
-            ?>
-              <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
-                <figure class="effect-ming tm-video-item">
-                  <img src="admin/menu/kelolafoto/img/<?php echo $row['postimage']; ?>" alt="Image" class="img-fluid">
-                  <figcaption class="d-flex align-items-center justify-content-center">
-                    <h2><?php echo $row['nama'] ?></h2>
-                    <a href="#">View more</a>
-                  </figcaption>
-                </figure>
-                <div class="d-flex justify-content-between tm-text-gray">
-                  <span class="tm-text-gray-light" style="color: black;"><?php echo $tanggal_posting; ?></span>
-                </div>
+            <!-- Popup Container -->
+            <div class="tm-popup-container" id="popup-container-kebun-sawo">
+              <div class="tm-popup-content">
+                <span class="tm-popup-close" onclick="closePopup()">&times;</span>
+                <img src="" class="tm-popup-image" id="popup-image-kebun-sawo">
+                <h2 id="popup-title-kebun-sawo"></h2>
               </div>
-            <?php
-            } ?>
-          </div>
+            </div>
 
-          <li>Bukit Kunci</li>
-          <div class="row mb-3 tm-gallery">
-            <?php
-            include "./assets/conn/koneksi.php";
-            $query = "SELECT postimage, nama, postDate FROM tb_img WHERE wisata = 'bukitkunci' ";
-            $result = mysqli_query($koneksi, $query);
 
-            while ($row = mysqli_fetch_array($result)) {
-              $tanggal_posting = date("d-m-Y", strtotime($row['postDate']));
-            ?>
-              <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
-                <figure class="effect-ming tm-video-item">
-                  <img src="admin/menu/kelolafoto/img/<?php echo $row['postimage']; ?>" alt="Image" class="img-fluid">
-                  <figcaption class="d-flex align-items-center justify-content-center">
-                    <h2><?php echo $row['nama'] ?></h2>
-                    <a href="#">View more</a>
-                  </figcaption>
-                </figure>
-                <div class="d-flex justify-content-between tm-text-gray">
-                  <span class="tm-text-gray-light" style="color: black;"><?php echo $tanggal_posting; ?></span>
+            <li>Wayang Thengul</li>
+            <div class="row mb-3 tm-gallery">
+              <?php
+              include "./assets/conn/koneksi.php";
+              $query = "SELECT postimage, nama, postDate FROM tb_img WHERE wisata = 'wayangthengul' ";
+              $result = mysqli_query($koneksi, $query);
+
+              while ($row = mysqli_fetch_array($result)) {
+                $tanggal_posting = date("d-m-Y", strtotime($row['postDate']));
+              ?>
+                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+                  <figure class="effect-ming tm-video-item">
+                    <img src="admin/menu/kelolafoto/img/<?php echo $row['postimage']; ?>" alt="Image" class="img-fluid tm-popup-trigger" data-image="admin/menu/kelolafoto/img/<?php echo $row['postimage']; ?>">
+                    <figcaption class="d-flex align-items-center justify-content-center">
+                      <h2><?php echo $row['nama'] ?></h2>
+                      <a href="#" onclick="openPopupWayangThengul('admin/menu/kelolafoto/img/<?php echo $row['postimage']; ?>', '<?php echo $row['nama']; ?>')">View more</a>
+                    </figcaption>
+                  </figure>
+                  <div class="d-flex justify-content-between tm-text-gray">
+                    <span class="tm-text-gray-light" style="color: black;"><?php echo $tanggal_posting; ?></span>
+                  </div>
                 </div>
-              </div>
-            <?php
-            } ?>
-          </div>
+              <?php
+              } ?>
+            </div>
 
-        </ul>
-      </h4>
+            <div class="tm-popup-container" id="popup-container-wayang-thengul">
+              <div class="tm-popup-content">
+                <span class="tm-popup-close" onclick="closePopup()">&times;</span>
+                <img src="" class="tm-popup-image" id="popup-image-wayang-thengul">
+                <h2 id="popup-title-wayang-thengul"></h2>
+              </div>
+            </div>
+
+            <li>Bukit Kunci</li>
+            <div class="row mb-3 tm-gallery">
+              <?php
+              include "./assets/conn/koneksi.php";
+              $query = "SELECT postimage, nama, postDate FROM tb_img WHERE wisata = 'bukitkunci' ";
+              $result = mysqli_query($koneksi, $query);
+
+              while ($row = mysqli_fetch_array($result)) {
+                $tanggal_posting = date("d-m-Y", strtotime($row['postDate']));
+              ?>
+                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+                  <figure class="effect-ming tm-video-item">
+                    <img src="admin/menu/kelolafoto/img/<?php echo $row['postimage']; ?>" alt="Image" class="img-fluid tm-popup-trigger" data-image="admin/menu/kelolafoto/img/<?php echo $row['postimage']; ?>">
+                    <figcaption class="d-flex align-items-center justify-content-center">
+                      <h2><?php echo $row['nama'] ?></h2>
+                      <a href="#" onclick="openPopupBukitKunci('admin/menu/kelolafoto/img/<?php echo $row['postimage']; ?>', '<?php echo $row['nama']; ?>')">View more</a>
+                    </figcaption>
+                  </figure>
+                  <div class="d-flex justify-content-between tm-text-gray">
+                    <span class="tm-text-gray-light" style="color: black;"><?php echo $tanggal_posting; ?></span>
+                  </div>
+                </div>
+              <?php
+              } ?>
+            </div>
+
+            <<div class="tm-popup-container" id="popup-container-bukit-kunci">
+              <div class="tm-popup-content">
+                <span class="tm-popup-close" onclick="closePopup()">&times;</span>
+                <img src="" class="tm-popup-image" id="popup-image-bukit-kunci">
+                <h2 id="popup-title-bukit-kunci"></h2>
+              </div>
+          </div>
     </div>
-    <!-- row -->
-    <br>
-    <br>
-    <br>
+
+    </ul>
+    </h4>
+  </div>
+  <!-- row -->
+  <br>
+  <br>
+  <br>
   </div>
   <!-- container-fluid, tm-container-content -->
   <!-- footer start-->
-  <footer class="tm-bg-gray pt-5 pb-3 tm-text-gray tm-footer" id="footer">
+  <footer class="tm-bg-gray pb-3 tm-text-gray tm-footer" id="footer" style="padding-top: 5px;">
     <div class="container-fluid tm-container-small">
-      <div class="row">
-        <div style="text-align: center">
-          <h3 class="tm-text-primary mb-4 tm-footer-title">Hubungi Kami</h3>
+      <div class="row mt-5">
+        <div class="col-lg-12 text-center">
+          <h3 class="tm-text-primary tm-footer-title">Hubungi Kami</h3>
           <p>Silahkan Hubungi kami jika ada pertanyaan</p>
         </div>
-        <div class="col-lg-3 col-md-6 col-sm-6 col-12 px-5 mb-5" style="margin-left: 450px">
-          <ul class="tm-social-links d-flex justify-content-end pl-0 mb-5">
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-lg-3 col-md-6 col-sm-6 col-12 px-5 mb-5">
+          <ul class="tm-social-links d-flex justify-content-center pl-0 pt-3 mb-5">
+            <!-- Social links here -->
             <li class="mb-2">
               <a href="https://www.facebook.com/profile.html?id=100063555219756" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Facebook"><i class="fab fa-facebook"></i></a>
             </li>
@@ -211,12 +303,11 @@
               <a href="https://www.youtube.com/channel/UC_KUb-cSOummG-rBOy-2Xbg" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="youtube"><i class="fa fa-play"></i></a>
             </li>
           </ul>
-
         </div>
       </div>
       <div class="row">
-        <div class="col-lg-8 col-md-7 col-12 px-5 mb-3">Copyright 2022 - STT Ronggolawe - PEM Akamigas Cepu.</div>
-        <div class="col-lg-4 col-md-5 col-12 px-5 text-right">Designed by <a href="https://www.sttrcepu.ac.id/informatikas1/home" class="tm-text-gray" rel="sponsored" target="_parent">Informatika - 2021</a></div>
+        <div class="col-lg-8 col-md-7 col-12 px-5 mb-3 custom-align">Copyright 2022 - STT Ronggolawe - PEM Akamigas Cepu.</div>
+        <div class="col-lg-4 col-md-5 col-12 px-5 mb-3 custom-align">Designed by <a href="https://www.sttrcepu.ac.id/informatikas1/home" class="tm-text-gray" rel="sponsored" target="_parent">Informatika - 2021</a></div>
       </div>
     </div>
   </footer>
@@ -289,6 +380,59 @@
       });
     });
   </script>
+  <script>
+    // JavaScript untuk menampilkan dan mengatur popup
+    function openPopupKebunSawo(imageUrl, title) {
+      const popupContainer = document.getElementById("popup-container-kebun-sawo");
+      const popupImage = document.getElementById("popup-image-kebun-sawo");
+      const popupTitle = document.getElementById("popup-title-kebun-sawo");
+
+      // Atur ukuran gambar dalam elemen .tm-popup-image
+      popupImage.style.maxWidth = "600px"; // Atur lebar maksimum gambar
+      popupImage.style.maxHeight = "400px"; // Atur tinggi maksimum gambar
+
+      popupImage.src = imageUrl;
+      popupTitle.textContent = title;
+      popupContainer.style.display = "flex";
+    }
+
+    function openPopupWayangThengul(imageUrl, title) {
+      const popupContainer = document.getElementById("popup-container-wayang-thengul");
+      const popupImage = document.getElementById("popup-image-wayang-thengul");
+      const popupTitle = document.getElementById("popup-title-wayang-thengul");
+
+      // Atur ukuran gambar dalam elemen .tm-popup-image
+      popupImage.style.maxWidth = "600px"; // Atur lebar maksimum gambar
+      popupImage.style.maxHeight = "400px"; // Atur tinggi maksimum gambar
+
+      popupImage.src = imageUrl;
+      popupTitle.textContent = title;
+      popupContainer.style.display = "flex";
+    }
+
+    function openPopupBukitKunci(imageUrl, title) {
+      const popupContainer = document.getElementById("popup-container-bukit-kunci");
+      const popupImage = document.getElementById("popup-image-bukit-kunci");
+      const popupTitle = document.getElementById("popup-title-bukit-kunci");
+
+      // Atur ukuran gambar dalam elemen .tm-popup-image
+      popupImage.style.maxWidth = "600px"; // Atur lebar maksimum gambar
+      popupImage.style.maxHeight = "400px"; // Atur tinggi maksimum gambar
+
+      popupImage.src = imageUrl;
+      popupTitle.textContent = title;
+      popupContainer.style.display = "flex";
+    }
+
+    function closePopup() {
+      const popupContainers = document.getElementsByClassName("tm-popup-container");
+      for (const popupContainer of popupContainers) {
+        popupContainer.style.display = "none";
+      }
+    }
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 
 </html>

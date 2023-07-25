@@ -52,6 +52,17 @@
         width: 80px; /* Adjust the width for mobile devices */
       }
     }
+
+    /* Custom CSS for mobile (up to 767px) */
+@media (max-width: 767px) {
+  .custom-align {
+    text-align: center;
+  }
+}
+
+
+
+
   </style>
 
   </head>
@@ -189,17 +200,18 @@
     <!-- container-fluid, tm-container-content -->
 
     <!-- footer start-->
-    <footer class="tm-bg-gray pt-5 pb-3 tm-text-gray tm-footer" id="footer">
+    <footer class="tm-bg-gray pb-3 tm-text-gray tm-footer" id="footer" style="padding-top: 5px;">
       <div class="container-fluid tm-container-small">
-        <div class="row">
+        <div class="row mt-5">
           <div class="col-lg-12 text-center">
-            <h3 class="tm-text-primary mb-4 tm-footer-title">Hubungi Kami</h3>
+            <h3 class="tm-text-primary tm-footer-title">Hubungi Kami</h3>
             <p>Silahkan Hubungi kami jika ada pertanyaan</p>
           </div>
         </div>
         <div class="row justify-content-center">
           <div class="col-lg-3 col-md-6 col-sm-6 col-12 px-5 mb-5">
-            <ul class="tm-social-links d-flex justify-content-center pl-0 mb-5">
+            <ul class="tm-social-links d-flex justify-content-center pl-0 pt-3 mb-5">
+              <!-- Social links here -->
               <li class="mb-2">
                 <a href="https://www.facebook.com/profile.html?id=100063555219756" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Facebook"><i class="fab fa-facebook"></i></a>
               </li>
@@ -222,9 +234,9 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-lg-8 col-md-7 col-12 px-5 mb-3 text-center text-md-start">Copyright 2022 - STT Ronggolawe - PEM Akamigas Cepu.</div>
-          <div class="col-lg-4 col-md-5 col-12 px-5 text-center text-md-end">Designed by <a href="https://www.sttrcepu.ac.id/informatikas1/home" class="tm-text-gray" rel="sponsored" target="_parent">Informatika - 2021</a></div>
-        </div>
+          <div class="col-lg-8 col-md-7 col-12 px-5 mb-3 custom-align">Copyright 2022 - STT Ronggolawe - PEM Akamigas Cepu.</div>
+          <div class="col-lg-4 col-md-5 col-12 px-5 mb-3 custom-align">Designed by <a href="https://www.sttrcepu.ac.id/informatikas1/home" class="tm-text-gray" rel="sponsored" target="_parent">Informatika - 2021</a></div>
+        </div>              
       </div>
     </footer>
     
