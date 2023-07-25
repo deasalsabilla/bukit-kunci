@@ -12,7 +12,43 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="shortcut icon" href="icon/icondesa.ico">
     <style>
-      
+      /* Kustomisasi untuk peta di dalam kontainer */
+      .mapku {
+            position: relative;
+            overflow: hidden;
+            width: 100%; /* Memastikan lebar peta 100% */
+        }
+
+        .mapku iframe {
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 80%;
+        }
+
+        /* Media query untuk tampilan di perangkat mobile */
+        @media (max-width: 767px) {
+            .mapku {
+                max-width: 100%;
+                /* Optional: Tambahkan margin untuk memberi jarak pada tampilan mobile */
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+        /* Kustomisasi untuk tampilan di laptop */
+        @media (min-width: 768px) {
+            .mapku {
+                max-width: 100%;
+                height: 620px; /* Sesuaikan dengan tinggi peta yang diinginkan */
+                margin: 0; /* Mepet ke kiri */
+            }
+        }
+
+        /* Additional CSS for better spacing (optional) */
+        .lm-package-wrap {
+            margin-bottom: 30px;
+        }
+        
     /* Custom CSS for mobile (up to 767px) */
 @media (max-width: 767px) {
   .custom-align {
@@ -60,12 +96,17 @@
         </div>
     </nav>
 
-    <div class="mapouter mb-4">
-        <div class="mapku">
-            <iframe width="100%" height="520" id="mapku" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.416782638623!2d111.51959995054023!3d-6.96006269494699!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e776bb170510bf7%3A0x984f769d17b94ac1!2sWisata%20Bukit%20Kunci!5e0!3m2!1sid!2sid!4v1672628032983!5m2!1sid!2sid" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
-        </div>
-
-    </div>
+    <!-- <div class="container"> -->
+      <!-- Kontainer untuk peta menggunakan Bootstrap grid -->
+      <div class="row">
+          <div class="col-lg-12">
+              <!-- Konten peta responsif menggunakan kelas "mapku" -->
+                  <div class="mapku">
+                      <iframe id="mapku" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.416782638623!2d111.51959995054023!3d-6.96006269494699!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e776bb170510bf7%3A0x984f769d17b94ac1!2sWisata%20Bukit%20Kunci!5e0!3m2!1sid!2sid!4v1672628032983!5m2!1sid!2sid" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                  </div>
+          </div>
+      </div>
+  <!-- </div> -->
 
     <div class="container-fluid tm-mt-60">
         <div class="row tm-mb-50">
