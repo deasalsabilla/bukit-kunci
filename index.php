@@ -141,7 +141,7 @@
         <?php
         include "admin/assets/conn/koneksi.php";
 
-        $query = "SELECT judul,deskripsi,gambar,date FROM tb_berita";
+        $query = "SELECT * FROM tb_berita";
         $sql = mysqli_query($koneksi, $query);
         while ($row = mysqli_fetch_assoc($sql)) {
           $tanggal_posting = date("d-m-Y", strtotime($row['date']));
@@ -157,7 +157,7 @@
                   <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2" href="">Business</a>
                   <a class="text-body" href=""><small><?php echo $tanggal_posting; ?></small></a>
                 </div>
-                <a class="h4 d-block mb-3 text-secondary text-uppercase font-weight-bold" href=""><?php echo $row['judul']; ?></a>
+                <a class="h4 d-block mb-3 text-secondary text-uppercase font-weight-bold" href="detailBerita.php?id=<?php echo $row['id']; ?>"><?php echo $row['judul']; ?></a>
                 <p class="m-0 custom-desc"><?php echo $row['deskripsi']; ?></p>
               </div>
             </div>
