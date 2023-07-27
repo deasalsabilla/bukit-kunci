@@ -79,6 +79,17 @@ session_start();
         <?php
         include "../../assets/conn/koneksi.php";
 
+        $sql = mysqli_query($conn, "select * from tb_img");
+        $data = mysqli_fetch_array($sql);
+
+        $auto = mysqli_query($conn, "select max(id) as max_code from tb_img");
+        $hasil = mysqli_fetch_array($auto);
+        $code = $hasil['max_code'];
+        $urutan = (int)substr($code, 1, 3);
+        $urutan++;
+        $huruf = "G";
+        $id = $huruf . sprintf("%03s", $urutan);
+
         if (isset($_POST['submit'])) {
             $nama = $_POST['nama'];
             $deskripsi = $_POST['caption'];
@@ -103,7 +114,7 @@ session_start();
 
                 move_uploaded_file($tmp_file, $dir . $imgnewfile);
 
-                $query = mysqli_query($koneksi, "insert into tb_img(postimage,nama,caption,wisata,isActive) values('$imgnewfile','$nama','$deskripsi','$wisata','$active')");
+                $query = mysqli_query($koneksi, "insert into tb_img(id,postimage,nama,caption,wisata,isActive) values('$id','$imgnewfile','$nama','$deskripsi','$wisata','$active')");
                 if ($query) {
                     echo "<script>alert('Data Berhasil ditambahkan');</script>";
                 } else {

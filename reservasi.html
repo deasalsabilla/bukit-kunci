@@ -2,270 +2,283 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Desa Wisata Bangowan - Reservasi</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="fontawesome/css/all.min.css">
-    <link rel="stylesheet" href="css/templatemo-style.css">
-    <link rel="stylesheet" href="css/styleku.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="shortcut icon" href="icon/icondesa.ico">
-    <style>
-      /* Kustomisasi untuk peta di dalam kontainer */
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Desa Wisata Bangowan - Reservasi</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="fontawesome/css/all.min.css">
+  <link rel="stylesheet" href="css/templatemo-style.css">
+  <link rel="stylesheet" href="css/styleku.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="shortcut icon" href="icon/icondesa.ico">
+  <style>
+    body {
+      text-align: left;
+    }
+
+    .container {
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    /* Remove default centering of the map iframe */
+    .mapku iframe {
+      margin-left: 0;
+    }
+
+    /* Remove default centering of the pricing packages */
+    .lm-pricing-row {
+      text-align: left;
+    }
+
+    .lm-default-row {
+      text-align: left;
+    }
+
+    /* Media query for mobile */
+    @media (max-width: 767px) {
       .mapku {
-            position: relative;
-            overflow: hidden;
-            width: 100%; /* Memastikan lebar peta 100% */
-            margin-top: 5px;
-        }
+        margin-left: auto;
+        margin-right: auto;
+      }
 
-        .mapku iframe {
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 80%;
-        }
+      /* Adjust the spacing for mobile */
+      .lm-package-wrap {
+        margin-left: 0;
+        margin-right: 0;
+      }
+    }
 
-        /* Media query untuk tampilan di perangkat mobile */
-        @media (max-width: 767px) {
-            .mapku {
-                max-width: 100%;
-                /* Optional: Tambahkan margin untuk memberi jarak pada tampilan mobile */
-                margin-left: auto;
-                margin-right: auto;
-            }
-        }
-        /* Kustomisasi untuk tampilan di laptop */
-        @media (min-width: 768px) {
-            .mapku {
-                max-width: 100%;
-                height: 620px; /* Sesuaikan dengan tinggi peta yang diinginkan */
-                margin: 0; /* Mepet ke kiri */
-            }
-        }
+    .lm-pricing {
+      display: flex;
+      flex-wrap: wrap;
+    }
 
-        /* Additional CSS for better spacing (optional) */
-        .lm-package-wrap {
-            margin-bottom: 30px;
-        }
-        
-    /* Custom CSS for mobile (up to 767px) */
-@media (max-width: 767px) {
-  .custom-align {
-    text-align: center;
-  }
-}
-    </style>
+    .lm-package-wrap {
+      flex: 1;
+    }
+
+    .lm-package {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .mapku {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      margin-top: 5px;
+    }
+
+    .mapku iframe {
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 80%;
+    }
+
+    @media (max-width: 767px) {
+      .mapku {
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .mapku {
+        max-width: 100%;
+        height: 620px;
+        margin: 0;
+      }
+    }
+
+    .lm-package-wrap {
+      margin-bottom: 30px;
+    }
+
+    @media (max-width: 767px) {
+      .custom-align {
+        text-align: center;
+      }
+    }
+  </style>
 </head>
 
 <body>
-    <!-- Page Loader -->
-    <div id="loader-wrapper">
-        <div id="loader"></div>
+  <!-- Page Loader -->
+  <div id="loader-wrapper">
+    <div id="loader"></div>
 
-        <div class="loader-section section-left"></div>
-        <div class="loader-section section-right"></div>
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
 
-    </div>
-    <nav class="navbar navbar-expand-lg">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="index.php">
-            <img src="img/logodesa.jpg" alt="Image" class="fas img-fluid" style="width: 75px;">
-            Desa Wisata Bangowan
-          </a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <i class="fas fa-bars" style="color: black;"></i>
-        </button>
-        
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link nav-link-1 " href="index.php">Beranda</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link nav-link-2 " aria-current="page" href="profil.html">Profil</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link nav-link-3" href="wisata.php">Wisata</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link nav-link-4 active" href="reservasi.html">Reservasi</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+  </div>
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.php">
+        <img src="img/logodesa.jpg" alt="Image" class="fas img-fluid" style="width: 75px;">
+        Desa Wisata Bangowan
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars" style="color: black;"></i>
+      </button>
 
-    <!-- <div class="container"> -->
-      <!-- Kontainer untuk peta menggunakan Bootstrap grid -->
-      <div class="row">
-          <div class="col-lg-12">
-              <!-- Konten peta responsif menggunakan kelas "mapku" -->
-                  <div class="mapku">
-                      <iframe id="mapku" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.416782638623!2d111.51959995054023!3d-6.96006269494699!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e776bb170510bf7%3A0x984f769d17b94ac1!2sWisata%20Bukit%20Kunci!5e0!3m2!1sid!2sid!4v1672628032983!5m2!1sid!2sid" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
-                  </div>
-          </div>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link nav-link-1 " href="index.php">Beranda</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-2 " aria-current="page" href="profil.html">Profil</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-3" href="wisata.php">Wisata</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-4 active" href="reservasi.html">Reservasi</a>
+          </li>
+        </ul>
       </div>
+    </div>
+  </nav>
+
+  <!-- <div class="container"> -->
+  <!-- Kontainer untuk peta menggunakan Bootstrap grid -->
+  <div class="row">
+    <div class="col-lg-12">
+      <!-- Konten peta responsif menggunakan kelas "mapku" -->
+      <div class="mapku">
+        <iframe id="mapku"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.416782638623!2d111.51959995054023!3d-6.96006269494699!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e776bb170510bf7%3A0x984f769d17b94ac1!2sWisata%20Bukit%20Kunci!5e0!3m2!1sid!2sid!4v1672628032983!5m2!1sid!2sid"
+          frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+      </div>
+    </div>
+  </div>
   <!-- </div> -->
 
-    <div class="container-fluid">
-        <div class="row tm-mb-50">
-                <h2 class="tm-text-primary mb-5" style="text-align: center;">
-                    Daftar Paket Wisata
-                </h2>
+  <div class="container-fluid">
+    <div class="tm-mb-50">
+      <h2 class="tm-text-primary mb-5" style="text-align: center;">
+        Daftar Paket Wisata
+      </h2>
 
-               <!-- Pricing -->
-               <div class="row">
-                <div class="col-sm-12 col-md-12">
+      <!-- Pricing -->
+      <div class="row">
+        <div class="col-sm-12 col-md-12">
 
-                  <div class="lm-pricing row clearfix">
-                    <div class="lm-package-wrap col-md-3 default-col">
-                      <div class="lm-package">
-                        <div class="lm-heading-row">
-                          <span>Paket Live In 1</span>
-                        </div>
-                        <div class="lm-pricing-row">
-                          <span>Rp. 240.000</span>
-                          <small>per orang</small>
-                        </div>
-
-                        <div class="lm-button-row">
-                          <a href="https://wa.me/6281227286595?&text=Hai%20admin%20saya%20mau%20bertanya" target="_blank" class="btn btn-primary">Order Now</a>
-                        </div>
-                        <div class="lm-default-row">
-                          Pementasan Wayang Thengul atau Karawitan
-                          <br>
-                          (pilih salah satu)
-                        </div>
-                        <div class="lm-default-row">
-                          Mewarnai Replika Wayang Thengul
-                          <br>
-                          (bisa dibawa pulang sebagai souvenir)
-                        </div>
-                        <div class="lm-default-row">
-                          EduWisata Hydroponik
-                        </div>
-                        <div class="lm-default-row">
-                          Explore Sunrise Bukit Kunci
-                        </div>
-                        <div class="lm-default-row">
-                          EduWisata Petik Sawo
-                        </div>
-                        <div class="lm-default-row">
-                          Homestay (Penginapan Rumah Desa)
-                        </div>
-                        <div class="lm-default-row">
-                          3x Makan, 2x Welcome Drink, 2x Snack
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="lm-package-wrap col-md-3 highlight-col ">
-                      <div class="lm-package">
-                        <div class="lm-heading-row">
-                          <span>Paket Live In 2</span>
-                        </div>
-                        <div class="lm-pricing-row">
-                          <span>Rp. 45.000</span>
-                          <small>per orang</small>
-                        </div>
-                        
-                        <div class="lm-button-row">
-                          <a href="https://wa.me/6281227286595?&text=Hai%20admin%20saya%20mau%20bertanya" target="_blank" class="btn btn-primary">Order Now</a>
-                        </div>
-                        <div class="lm-default-row">
-                          Camp 
-                          <br>
-                          (Free Tenda)
-                        </div>
-                        <div class="lm-default-row">
-                          Explore Sunrise Bukit Kunci
-                        </div>
-                        <div class="lm-default-row">
-                          Tracking Sumur Minyak Tua
-                        </div>
-                        <div class="lm-default-row">
-                          EduWisata Hydroponik
-                        </div>
-                        <div class="lm-default-row">
-                            1x Makan
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="lm-package-wrap col-md-3 default-col ">
-                      <div class="lm-package">
-                        <div class="lm-heading-row">
-                          <span>Paket Pelajar 1</span>
-                        </div>
-                        
-                        <div class="lm-pricing-row">
-                          <span>Rp. 40.000</span>
-                          <small>per orang
-                            <br>
-                            Minimal 10 orang
-                          </small>
-                        </div>
-
-                        <div class="lm-button-row">
-                          <a href="https://wa.me/6281227286595?&text=Hai%20admin%20saya%20mau%20bertanya" target="_blank" class="btn btn-primary">Order Now</a>
-                        </div>
-
-                        <div class="lm-default-row">
-                          EduWisata Wayang Thengul atau Karawitan
-                          <br>
-                          (pilih salah satu)
-                        </div>
-                        <div class="lm-default-row">
-                          EduWisata Hydroponik
-                        </div>
-                        <div class="lm-default-row">
-                          Explore Bukit Kunci
-                        </div>
-                        <div class="lm-default-row">
-                          1x Snack
-                        </div>
-                        <div class="lm-default-row">
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="lm-package-wrap col-md-3 highlight-col ">
-                        <div class="lm-package">
-                          <div class="lm-heading-row">
-                            <span>Paket Pelajar 2</span>
-                          </div>
-                          <div class="lm-pricing-row">
-                            <span>Rp. 30.000</span>
-                            <small>per orang
-                            <br>
-                            Minimal 10 orang
-                            </small>
-                          </div>
-                          
-                          <div class="lm-button-row">
-                            <a href="https://wa.me/6281227286595?&text=Hai%admin%20saya%20mau%20bertanya" target="_self" class="btn btn-primary">Order Now</a>
-                          </div>
-                          <div class="lm-default-row">
-                            EduWisata Sawo
-                          </div>
-                          <div class="lm-default-row">
-                            EduWisata Hydroponik
-                          </div>
-                          <div class="lm-default-row">
-                            Explore Bukit Kunci
-                          </div>
-                          <div class="lm-default-row">
-                            1x Snack
-                        </div>
-                        </div>
-                      </div>
-                  </div>
+          <div class="lm-pricing row clearfix">
+            <div class="lm-package-wrap col-md-3 default-col">
+              <div class="lm-package">
+                <div class="lm-heading-row">
+                  <span>Paket Live In 1</span>
                 </div>
+                <div class="lm-pricing-row">
+                  <span style="text-align: center;">Rp. 240.000</span>
+                  <small style="text-align: center;">per orang</small>
+                </div>
+
+                <div class="lm-button-row">
+                  <a href="https://wa.me/6281227286595?&text=Hai%20admin%20saya%20mau%20bertanya" target="_blank"
+                    class="btn btn-primary">Order Now</a>
+                </div>
+                <ul class="lm-default-row">
+                  <li>Pementasan Wayang Thengul atau Karawitan</li>
+                  <li>Mewarnai Replika Wayang Thengul (bisa dibawa pulang sebagai souvenir)</li>
+                  <li>EduWisata Hydroponik</li>
+                  <li>Explore Sunrise Bukit Kunci</li>
+                  <li>EduWisata Petik Sawo</li>
+                  <li>Homestay (Penginapan Rumah Desa)</li>
+                  <li>3x Makan, 2x Welcome Drink, 2x Snack</li>
+                </ul>
               </div>
-              <!-- End of Pricing --> 
-            <!-- <div class="col-lg-4 col-12">
+            </div>
+
+            <div class="lm-package-wrap col-md-3 highlight-col ">
+              <div class="lm-package">
+                <div class="lm-heading-row">
+                  <span>Paket Live In 2</span>
+                </div>
+                <div class="lm-pricing-row">
+                  <span style="text-align: center;">Rp. 45.000</span>
+                  <small style="text-align: center;">per orang</small>
+                </div>
+
+                <div class="lm-button-row">
+                  <a href="https://wa.me/6281227286595?&text=Hai%20admin%20saya%20mau%20bertanya" target="_blank"
+                    class="btn btn-primary">Order Now</a>
+                </div>
+                <ul class="lm-default-row">
+                  <li>Camp (Free Tenda)</li>
+                  <li>Explore Sunrise Bukit Kunci</li>
+                  <li>Tracking Sumur Minyak Tua</li>
+                  <li>EduWisata Hydroponik</li>
+                  <li>1x Makan</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="lm-package-wrap col-md-3 default-col ">
+              <div class="lm-package">
+                <div class="lm-heading-row">
+                  <span>Paket Pelajar 1</span>
+                </div>
+
+                <div class="lm-pricing-row">
+                  <span style="text-align: center;">Rp. 40.000</span>
+                  <small style="text-align: center;">per orang
+                    <br>
+                    Minimal 10 orang
+                  </small>
+                </div>
+
+                <div class="lm-button-row">
+                  <a href="https://wa.me/6281227286595?&text=Hai%20admin%20saya%20mau%20bertanya" target="_blank"
+                    class="btn btn-primary">Order Now</a>
+                </div>
+
+                <ul class="lm-default-row">
+                  <li>EduWisata Wayang Thengul atau Karawitan (pilih salah satu)</li>
+                  <li>EduWisata Hydroponik</li>
+                  <li>Explore Bukit Kunci</li>
+                  <li>1x Snack</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="lm-package-wrap col-md-3 highlight-col ">
+              <div class="lm-package">
+                <div class="lm-heading-row">
+                  <span>Paket Pelajar 2</span>
+                </div>
+                <div class="lm-pricing-row">
+                  <span style="text-align: center;">Rp. 30.000</span>
+                  <small style="text-align: center;">per orang
+                    <br>
+                    Minimal 10 orang
+                  </small>
+                </div>
+
+                <div class="lm-button-row">
+                  <a href="https://wa.me/6281227286595?&text=Hai%admin%20saya%20mau%20bertanya" target="_self"
+                    class="btn btn-primary">Order Now</a>
+                </div>
+                <ul class="lm-default-row">
+                  <li>EduWisata Sawo</li>
+                  <li>EduWisata Hydroponik</li>
+                  <li>Explore Bukit Kunci</li>
+                  <li>1x Snack</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End of Pricing -->
+      <!-- <div class="col-lg-4 col-12">
                 <h2 class="tm-text-primary mb-5">Alamat kami</h2>
                 <p class="tm-mb-50">Harap memesan sebelum ..............</p>
                 <p class="tm-mb-50">Waktu Buka : <br>
@@ -296,11 +309,11 @@
                         </a>
                     </li>
                 </ul> -->
-                <!-- Map -->
+      <!-- Map -->
 
-            </div>
-        </div>
-        <!--<div class="row tm-mb-74 tm-people-row">
+    </div>
+  </div>
+  <!--<div class="row tm-mb-74 tm-people-row">
             <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-5">
                 <img src="img/people-1.jpg" alt="Image" class="mb-4 img-fluid">
                 <h2 class="tm-text-primary mb-4">Ryan White</h2>
@@ -354,56 +367,65 @@
                 </ul>
             </div>
         </div>-->
-    </div> <!-- container-fluid, tm-container-content -->
-    <!-- footer start-->
-    <footer class="tm-bg-gray pb-3 tm-text-gray tm-footer" id="footer" style="padding-top: 5px;">
-      <div class="container-fluid tm-container-small">
-        <div class="row mt-5">
-          <div class="col-lg-12 text-center">
-            <h3 class="tm-text-primary tm-footer-title">Hubungi Kami</h3>
-            <p>Silahkan Hubungi kami jika ada pertanyaan</p>
-          </div>
+  </div> <!-- container-fluid, tm-container-content -->
+  <!-- footer start-->
+  <footer class="tm-bg-gray pb-3 tm-text-gray tm-footer" id="footer" style="padding-top: 5px;">
+    <div class="container-fluid tm-container-small">
+      <div class="row mt-5">
+        <div class="col-lg-12 text-center">
+          <h3 class="tm-text-primary tm-footer-title">Hubungi Kami</h3>
+          <p>Silahkan Hubungi kami jika ada pertanyaan</p>
         </div>
-        <div class="row justify-content-center">
-          <div class="col-lg-3 col-md-6 col-sm-6 col-12 px-5 mb-5">
-            <ul class="tm-social-links d-flex justify-content-center pl-0 pt-3 mb-5">
-              <!-- Social links here -->
-              <li class="mb-2">
-                <a href="https://www.facebook.com/profile.html?id=100063555219756" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Facebook"><i class="fab fa-facebook"></i></a>
-              </li>
-              <li class="mb-2">
-                <a href="https://twitter.com/bangowanbumdesa" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Twitter"><i class="fab fa-twitter"></i></a>
-              </li>
-              <li class="mb-2">
-                <a href="https://www.instagram.com/desawisatabangowan/" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Instagram"><i class="fab fa-instagram"></i></a>
-              </li>
-              <li class="mb-2">
-                <a href="https://wa.me/6285641200447" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-              </li>
-              <li class="mb-2">
-                <a href="https://goo.gl/maps/62jLjwSRgj9dhmqV9" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Lokasi"><i class="fa fa-map-marker" ></i></a>
-              </li>
-              <li class="mb-2">
-                <a href="https://www.youtube.com/channel/UC_KUb-cSOummG-rBOy-2Xbg" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="youtube"><i class="fa fa-play"></i></a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-8 col-md-7 col-12 px-5 mb-3 custom-align">Copyright 2022 - STT Ronggolawe - PEM Akamigas Cepu.</div>
-          <div class="col-lg-4 col-md-5 col-12 px-5 mb-3 custom-align">Designed by <a href="https://www.sttrcepu.ac.id/informatikas1/home" class="tm-text-gray" rel="sponsored" target="_parent">Informatika - 2021</a></div>
-        </div>              
       </div>
-    </footer>
+      <div class="row justify-content-center">
+        <div class="col-lg-3 col-md-6 col-sm-6 col-12 px-5 mb-5">
+          <ul class="tm-social-links d-flex justify-content-center pl-0 pt-3 mb-5">
+            <!-- Social links here -->
+            <li class="mb-2">
+              <a href="https://www.facebook.com/profile.html?id=100063555219756" data-bs-toggle="tooltip"
+                data-bs-placement="bottom" data-bs-title="Facebook"><i class="fab fa-facebook"></i></a>
+            </li>
+            <li class="mb-2">
+              <a href="https://twitter.com/bangowanbumdesa" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                data-bs-title="Twitter"><i class="fab fa-twitter"></i></a>
+            </li>
+            <li class="mb-2">
+              <a href="https://www.instagram.com/desawisatabangowan/" data-bs-toggle="tooltip"
+                data-bs-placement="bottom" data-bs-title="Instagram"><i class="fab fa-instagram"></i></a>
+            </li>
+            <li class="mb-2">
+              <a href="https://wa.me/6285641200447" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                data-bs-title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            </li>
+            <li class="mb-2">
+              <a href="https://goo.gl/maps/62jLjwSRgj9dhmqV9" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                data-bs-title="Lokasi"><i class="fa fa-map-marker"></i></a>
+            </li>
+            <li class="mb-2">
+              <a href="https://www.youtube.com/channel/UC_KUb-cSOummG-rBOy-2Xbg" data-bs-toggle="tooltip"
+                data-bs-placement="bottom" data-bs-title="youtube"><i class="fa fa-play"></i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-8 col-md-7 col-12 px-5 mb-3 custom-align">Copyright 2022 - STT Ronggolawe - PEM Akamigas
+          Cepu.</div>
+        <div class="col-lg-4 col-md-5 col-12 px-5 mb-3 custom-align">Designed by <a
+            href="https://www.sttrcepu.ac.id/informatikas1/home" class="tm-text-gray" rel="sponsored"
+            target="_parent">Informatika - 2021</a></div>
+      </div>
+    </div>
+  </footer>
 
-    <!-- footer End-->
+  <!-- footer End-->
 
-    <script src="js/plugins.js"></script>
-    <script>
-        $(window).on("load", function() {
-            $('body').addClass('loaded');
-        });
-    </script>
+  <script src="js/plugins.js"></script>
+  <script>
+    $(window).on("load", function () {
+      $('body').addClass('loaded');
+    });
+  </script>
 </body>
 
 </html>

@@ -84,7 +84,6 @@
   }
   ?>
 
-
   <div class="container-fluid tm-container-content tm-mt-60">
     <div class="row mb-4">
       <h2 class="col-12 tm-text-primary text-uppercase"><?php echo $row['judul']; ?></h2>

@@ -79,6 +79,17 @@ session_start();
         <?php
         include "../../assets/conn/koneksi.php";
 
+        $sql = mysqli_query($conn, "select * from tb_berita");
+        $data = mysqli_fetch_array($sql);
+
+        $auto = mysqli_query($conn, "select max(id) as max_code from tb_berita");
+        $hasil = mysqli_fetch_array($auto);
+        $code = $hasil['max_code'];
+        $urutan = (int)substr($code, 1, 3);
+        $urutan++;
+        $huruf = "B";
+        $id = $huruf . sprintf("%03s", $urutan);
+
         if (isset($_POST['submit'])) {
             $judul = $_POST['judul'];
             $deskripsi = $_POST['deskripsi'];
@@ -102,7 +113,7 @@ session_start();
 
                 move_uploaded_file($tmp_file, $dir . $imgnewfile);
 
-                $query = mysqli_query($koneksi, "insert into tb_berita(judul,deskripsi,gambar) values('$judul','$deskripsi','$imgnewfile')");
+                $query = mysqli_query($koneksi, "insert into tb_berita(id,judul,deskripsi,gambar) values('$id','$judul','$deskripsi','$imgnewfile')");
                 if ($query) {
                     echo "<script>alert('Data Berhasil ditambahkan');</script>";
                 } else {
