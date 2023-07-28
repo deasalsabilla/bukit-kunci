@@ -79,10 +79,10 @@ session_start();
         <?php
         include "../../assets/conn/koneksi.php";
 
-        $sql = mysqli_query($conn, "select * from tb_img");
+        $sql = mysqli_query($koneksi, "select * from tb_img");
         $data = mysqli_fetch_array($sql);
 
-        $auto = mysqli_query($conn, "select max(id) as max_code from tb_img");
+        $auto = mysqli_query($koneksi, "select max(id) as max_code from tb_img");
         $hasil = mysqli_fetch_array($auto);
         $code = $hasil['max_code'];
         $urutan = (int)substr($code, 1, 3);

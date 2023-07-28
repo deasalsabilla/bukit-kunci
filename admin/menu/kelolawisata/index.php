@@ -81,10 +81,10 @@ session_start();
         include "../../assets/conn/koneksi.php";
         error_reporting(error_reporting() & ~E_NOTICE);
         
-        $sql = mysqli_query($conn, "select * from tb_wisata");
+        $sql = mysqli_query($koneksi, "select * from tb_wisata");
         $data = mysqli_fetch_array($sql);
 
-        $auto = mysqli_query($conn, "select max(id) as max_code from tb_wisata");
+        $auto = mysqli_query($koneksi, "select max(id) as max_code from tb_wisata");
         $hasil = mysqli_fetch_array($auto);
         $code = $hasil['max_code'];
         $urutan = (int)substr($code, 1, 3);
