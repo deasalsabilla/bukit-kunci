@@ -5,45 +5,48 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Desa Wisata Bangowan - Welcome</title>
-  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <!-- <link rel="stylesheet" href="css/bootstrap.min.css" /> -->
   <link rel="stylesheet" href="fontawesome/css/all.min.css" />
   <link rel="stylesheet" href="css/templatemo-style.css" />
   <link rel="stylesheet" href="css/styleku.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="shortcut icon" href="icon/icondesa.ico">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
   <style>
     /* CSS */
-  .news-item {
-    width: 100%;
-    height: 400px; /* Sesuaikan tinggi container berita sesuai kebutuhan */
-    overflow: hidden;
-    margin-bottom: 20px;
-  }
+    .news-item {
+      width: 100%;
+      height: 400px;
+      /* Sesuaikan tinggi container berita sesuai kebutuhan */
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
 
-  .news-item .img-container {
-    height: 60%; /* Tinggi relatif dari gambar di dalam container berita */
-    overflow: hidden;
-  }
+    .news-item .img-container {
+      height: 60%;
+      /* Tinggi relatif dari gambar di dalam container berita */
+      overflow: hidden;
+    }
 
-  .news-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+    .news-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
-  .news-item .content-container {
-    padding: 10px;
-    background-color: #f7f7f7;
-    height: 40%; /* Tinggi relatif dari konten di dalam container berita */
-  }
+    .news-item .content-container {
+      padding: 10px;
+      background-color: #f7f7f7;
+      height: 40%;
+      /* Tinggi relatif dari konten di dalam container berita */
+    }
 
-  .custom-desc{
-    -webkit-line-clamp: 2;
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-  }
+    .custom-desc {
+      -webkit-line-clamp: 2;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+    }
 
     /* Custom CSS for mobile (up to 767px) */
     @media (max-width: 767px) {
@@ -74,19 +77,19 @@
 
           Desa Wisata Bangowan
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
           <i class="fas fa-bars"></i>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse" id="navbar">
           <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link nav-link-1 active" href="index.php">Beranda</a>
+              <a class="nav-link nav-link-1 active" aria-current="page" href="index.php">Beranda</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link nav-link-2 " aria-current="page" href="profil.html">Profil</a>
+              <a class="nav-link nav-link-2" href="profil.html">Profil</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link nav-link-3 " href="wisata.php">Wisata</a>
+              <a class="nav-link nav-link-3" href="wisata.php">Wisata</a>
             </li>
             <li class="nav-item">
               <a class="nav-link nav-link-4" href="reservasi.html">Reservasi</a>
@@ -99,27 +102,27 @@
 
     <!-- jumbotron start -->
 
-    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" style="width: 100%; overflow: hidden; position: relative;">
+    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel" style="width: 100%; overflow: hidden; position: relative;">
       <div class="carousel-inner" style="width: 100%; max-height: 500px; margin-left: auto; margin-right: auto;">
         <div class="carousel-item active">
-          <img src="./img/poto carosel 00.jpg" class="d-block w-100" alt="" style="object-fit: cover; height: 500px;" />
+          <img src="./img/poto carosel 00.jpg" class="d-block w-100" alt="..." style="object-fit: cover; height: 500px;">
         </div>
         <div class="carousel-item">
-          <img src="./img/poto carosel 4.jpg" class="d-block w-100" alt="..." style="object-fit: cover; height: 500px;" />
+          <img src="./img/poto carosel 4.jpg" class="d-block w-100" alt="..." style="object-fit: cover; height: 500px;">
         </div>
         <div class="carousel-item">
-          <img src="./img/poto carosel 3.jpg" class="d-block w-100" alt="..." style="object-fit: cover; height: 500px;" />
+          <img src="./img/poto carosel 3.jpg"" class=" d-block w-100" alt="..." style="object-fit: cover; height: 500px;">
+        </div>
+        <div class="hero-text" style="position: absolute; top: 50px; left: 120px;">
+          <img src="img/logo sttr.png" style="width: 100px; display: inline-block; margin-right: 10px;">
+          <img src="img/logo pem nobg.png" style="width: 100px; display: inline-block;">
         </div>
       </div>
-      <div class="hero-text" style="position: absolute; top: 50px; left: 120px;">
-        <img src="img/logo sttr.png" style="width: 100px; display: inline-block; margin-right: 10px;">
-        <img src="img/logo pem nobg.png" style="width: 100px; display: inline-block;">
-      </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Previous</span>
       </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Next</span>
       </button>

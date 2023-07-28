@@ -111,19 +111,19 @@
 
         Desa Wisata Bangowan
       </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
         <i class="fas fa-bars"></i>
       </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="collapse navbar-collapse" id="navbar">
         <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link nav-link-1 " aria-current="page" href="index.php">Beranda</a>
+            <a class="nav-link nav-link-1 " href="index.php">Beranda</a>
           </li>
           <li class="nav-item">
             <a class="nav-link nav-link-2 " href="profil.html">Profil</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link nav-link-3 active" href="wisata.php">Wisata</a>
+            <a class="nav-link nav-link-3 active" aria-current="page" href="wisata.php">Wisata</a>
           </li>
           <li class="nav-item">
             <a class="nav-link nav-link-4" href="reservasi.html">Reservasi</a>

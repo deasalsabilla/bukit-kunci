@@ -575,14 +575,14 @@ select:not([multiple]) {
 }
 
 @media (max-width: 991px) {
-    .navbar-collapse {
+    /* .navbar-collapse {
         position: fixed;
         top: 50px;
         right: 0px;
         background: white;
         width: 150px;
         padding: 15px;
-    }
+    } */
 
     .tm-container-content { max-width: 870px; }
     .tm-contact-form, .tm-address-col, .mapouter { max-width: 100%; }
