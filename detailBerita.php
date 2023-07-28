@@ -100,6 +100,16 @@
     </div>
   </nav>
 
+  <div class="container-fluid tm-container-content" style="margin-top: 5px;">
+  <div class="row">
+    <div class="col-12">
+      <!-- Back button using Font Awesome icon and Bootstrap styling -->
+      <a href="index.php" class="btn btn-primary tm-btn-back">
+        <i class="fas fa-arrow-left mr-2"></i>Back
+      </a>
+    </div>
+  </div>
+
   <!-- untuk menampilkan detail berita -->
   <?php
   include "admin/assets/conn/koneksi.php";
@@ -151,18 +161,16 @@
 
   <!-- berita lainnya -->
   <div class="row mb-4">
-    <h2 class="col-12 tm-text-primary">
+    <h2 class="col-12 tm-text-primary text-center">
       Berita Lainnya
     </h2>
   </div>
   <div class="container-fluid tm-container-content">
     <div class="row">
-
       <?php
-      // Ambil data berita berdasarkan ID dari database
-      include "admin/assets/conn/koneksi.php";
-      $data = mysqli_query($koneksi, "SELECT * FROM tb_berita WHERE id <> $beritaId ORDER BY date ASC LIMIT 4");
-      while ($hasil = mysqli_fetch_assoc($data)) {
+      $id = $_GET['id'];
+      $data = mysqli_query($koneksi, "SELECT * FROM tb_berita ORDER BY date ASC LIMIT 4");
+      while ($hasil = mysqli_fetch_array($data)) {
         $tanggal = date("d-m-Y", strtotime($hasil['date']));
       ?>
         <div class="col-lg-3">
@@ -181,59 +189,61 @@
           </div>
         </div>
       <?php } ?>
+    </div>
+  </div>
 
-      <!-- footer -->
-      <footer class="tm-bg-gray pb-3 tm-text-gray tm-footer" id="footer" style="padding-top: 5px;">
-        <div class="container-fluid tm-container-small">
-          <div class="row mt-5">
-            <div class="col-lg-12 text-center">
-              <h3 class="tm-text-primary tm-footer-title">Hubungi Kami</h3>
-              <p>Silahkan Hubungi kami jika ada pertanyaan</p>
-            </div>
-          </div>
-          <div class="row justify-content-center">
-            <div class="col-lg-3 col-md-6 col-sm-6 col-12 px-5 mb-5">
-              <ul class="tm-social-links d-flex justify-content-center pl-0 pt-3 mb-5">
-                <!-- Social links here -->
-                <li class="mb-2">
-                  <a href="https://www.facebook.com/profile.html?id=100063555219756" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Facebook"><i class="fab fa-facebook"></i></a>
-                </li>
-                <li class="mb-2">
-                  <a href="https://twitter.com/bangowanbumdesa" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Twitter"><i class="fab fa-twitter"></i></a>
-                </li>
-                <li class="mb-2">
-                  <a href="https://www.instagram.com/desawisatabangowan/" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Instagram"><i class="fab fa-instagram"></i></a>
-                </li>
-                <li class="mb-2">
-                  <a href="https://wa.me/6285641200447" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                </li>
-                <li class="mb-2">
-                  <a href="https://goo.gl/maps/62jLjwSRgj9dhmqV9" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Lokasi"><i class="fa fa-map-marker"></i></a>
-                </li>
-                <li class="mb-2">
-                  <a href="https://www.youtube.com/channel/UC_KUb-cSOummG-rBOy-2Xbg" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="youtube"><i class="fa fa-play"></i></a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-lg-8 col-md-7 col-12 px-5 mb-3 custom-align">Copyright 2022 - STT Ronggolawe - PEM Akamigas Cepu.</div>
-            <div class="col-lg-4 col-md-5 col-12 px-5 mb-3 custom-align">Designed by <a href="https://www.sttrcepu.ac.id/informatikas1/home" class="tm-text-gray" rel="sponsored" target="_parent">Informatika - 2021</a></div>
-          </div>
+  <!-- footer -->
+  <footer class="tm-bg-gray pb-3 tm-text-gray tm-footer" id="footer" style="padding-top: 5px;">
+    <div class="container-fluid tm-container-small">
+      <div class="row mt-5">
+        <div class="col-lg-12 text-center">
+          <h3 class="tm-text-primary tm-footer-title">Hubungi Kami</h3>
+          <p>Silahkan Hubungi kami jika ada pertanyaan</p>
         </div>
-      </footer>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-lg-3 col-md-6 col-sm-6 col-12 px-5 mb-5">
+          <ul class="tm-social-links d-flex justify-content-center pl-0 pt-3 mb-5">
+            <!-- Social links here -->
+            <li class="mb-2">
+              <a href="https://www.facebook.com/profile.html?id=100063555219756" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Facebook"><i class="fab fa-facebook"></i></a>
+            </li>
+            <li class="mb-2">
+              <a href="https://twitter.com/bangowanbumdesa" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Twitter"><i class="fab fa-twitter"></i></a>
+            </li>
+            <li class="mb-2">
+              <a href="https://www.instagram.com/desawisatabangowan/" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Instagram"><i class="fab fa-instagram"></i></a>
+            </li>
+            <li class="mb-2">
+              <a href="https://wa.me/6285641200447" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            </li>
+            <li class="mb-2">
+              <a href="https://goo.gl/maps/62jLjwSRgj9dhmqV9" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Lokasi"><i class="fa fa-map-marker"></i></a>
+            </li>
+            <li class="mb-2">
+              <a href="https://www.youtube.com/channel/UC_KUb-cSOummG-rBOy-2Xbg" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="youtube"><i class="fa fa-play"></i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-8 col-md-7 col-12 px-5 mb-3 custom-align">Copyright 2022 - STT Ronggolawe - PEM Akamigas Cepu.</div>
+        <div class="col-lg-4 col-md-5 col-12 px-5 mb-3 custom-align">Designed by <a href="https://www.sttrcepu.ac.id/informatikas1/home" class="tm-text-gray" rel="sponsored" target="_parent">Informatika - 2021</a></div>
+      </div>
+    </div>
+  </footer>
 
 
 
-      <script src="js/plugins.js"></script>
+  <script src="js/plugins.js"></script>
 
-      <script>
-        $(window).on("load", function() {
+  <script>
+    $(window).on("load", function() {
 
-          $('body').addClass('loaded');
+      $('body').addClass('loaded');
 
-        });
-      </script>
+    });
+  </script>
 
 </body>
 
