@@ -17,6 +17,11 @@ session_start();
     <link rel="stylesheet" href="../../plugins/ekko-lightbox/ekko-lightbox.css">
     <link rel="shortcut icon" href="icon/logodesa.ico">
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <style>
+        .custom-desc {
+            white-space: normal;
+        }
+    </style>
 </head>
 
 <body>
@@ -249,8 +254,8 @@ session_start();
                                 <tr>
                                     <td><?php echo $no++ ?></td>
                                     <td><img src="img/<?php echo $hasil['postimage'] ?>" width="125px" height="125px"></td>
-                                    <td><?php echo $hasil['nama'] ?></td>
-                                    <td><?php echo $hasil['caption'] ?></td>
+                                    <td class="custom-desc"><?php echo $hasil['nama'] ?></td>
+                                    <td class="custom-desc"><?php echo $hasil['caption'] ?></td>
                                     <?php echo '<td><span class="badge ' . $badge_class . '">' . $badge_text . '</span></td>'; ?>
                                     <td><?php echo $hasil['postDate'] ?></td>
                                     <td>

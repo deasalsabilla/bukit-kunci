@@ -17,6 +17,11 @@ session_start();
     <link rel="stylesheet" href="../../plugins/ekko-lightbox/ekko-lightbox.css">
     <link rel="shortcut icon" href="icon/logodesa.ico">
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <style>
+        .custom-desc {
+            white-space: normal;
+        }
+    </style>
 </head>
 
 <body>
@@ -205,7 +210,7 @@ session_start();
                                 <tr>
                                     <td><?php echo $no++ ?></td>
                                     <td><?php echo $hasil['judul'] ?></td>
-                                    <td><?php echo $hasil['deskripsi'] ?></td>
+                                    <td class="custom-desc"><?php echo $hasil['deskripsi'] ?></td>
                                     <td><img src="img/<?php echo $hasil['gambar'] ?>" width="125px" height="125px"></td>
                                     <td><?php echo $hasil['date'] ?></td>
                                     <td>
