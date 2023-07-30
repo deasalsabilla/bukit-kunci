@@ -29,7 +29,7 @@ h1 {
 }
 
 .panel_login {
-  width: 25%;
+  width: 75%;
   background: white;
   /*meletakkan form ke tengah*/
   margin: 80px auto;
@@ -82,3 +82,18 @@ label {
   z-index: 2;
 }
 
+@media (min-width: 1024px) {
+  .panel_login {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  .panel_login {
+    margin: 150px auto;
+  }
+
+  body{
+    margin-left: auto;
+  }
+}
