@@ -50,13 +50,13 @@ session_start();
             </div>
             <div class="slider-body px-1">
                 <nav class="nav flex-column">
-                    <a class="nav-link px-3 active" href="../../index.php">
+                    <a class="nav-link px-3 " href="../../index.php">
                         Home
                     </a>
                     <hr class="soft my-1 bg-dark">
 
-                    <a class="nav-link px-3" href="../../menu/berita/index.php">
-                        <i class="fa fa-" aria-hidden="true"></i>Berita
+                    <a class="nav-link px-3 active" href="../../menu/berita/index.php">
+                        <i class="" aria-hidden="true"></i>Berita
                     </a>
                     <?php if ($_SESSION['level'] == "admin") : ?>
                         <a class="nav-link px-3" href="../../menu/kelolawisata/index.php">
@@ -78,6 +78,27 @@ session_start();
                 </nav>
             </div>
         </div>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                const btnSlider = document.getElementById("btn-slider");
+                const slider = document.getElementById("sliders");
+
+                btnSlider.addEventListener("click", function(e) {
+                    e.stopPropagation(); // Prevent click event from propagating to document
+                    slider.classList.toggle("active");
+                });
+
+                document.addEventListener("click", function(e) {
+                    const targetElement = e.target;
+                    if (targetElement !== slider && !slider.contains(targetElement)) {
+                        slider.classList.remove("active");
+                    }
+                });
+            });
+        </script>
+
+
 
         <!-- end side bar -->
 

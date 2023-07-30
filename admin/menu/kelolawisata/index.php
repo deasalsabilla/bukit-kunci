@@ -80,6 +80,24 @@ session_start();
             </div>
         </div>
 
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                const btnSlider = document.getElementById("btn-slider");
+                const slider = document.getElementById("sliders");
+
+                btnSlider.addEventListener("click", function(e) {
+                    e.stopPropagation(); // Prevent click event from propagating to document
+                    slider.classList.toggle("active");
+                });
+
+                document.addEventListener("click", function(e) {
+                    const targetElement = e.target;
+                    if (targetElement !== slider && !slider.contains(targetElement)) {
+                        slider.classList.remove("active");
+                    }
+                });
+            });
+        </script>
         <!-- end side bar -->
 
         <?php
